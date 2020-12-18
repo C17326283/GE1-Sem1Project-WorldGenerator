@@ -8,7 +8,8 @@ public class RandomGenSpawner : MonoBehaviour
 {
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
     private ObjectPool multObjectPoolObj;
-    public GameObject activeParent;
+    public GameObject parentObject;
+    public GameObject planetObject;
     private Vector3 core;//for raycasting spawn points
     
     public int amountToSpawn = 100;//also limited by pool max
@@ -27,7 +28,7 @@ public class RandomGenSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        core = activeParent.transform.position;
+        core = planetObject.transform.position;
         multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
         
         for (int i = 0; i < amountToSpawn; i++)
@@ -69,7 +70,7 @@ public class RandomGenSpawner : MonoBehaviour
                         newObj.transform.localScale = Vector3.one * scale;//.one for all round scale
                         newObj.transform.Rotate(Random.Range(-randomXZTilt,randomXZTilt),Random.Range(0,360),Random.Range(-randomXZTilt,randomXZTilt));
                     }
-                    newObj.transform.parent = activeParent.transform;//set parent to correct obj
+                    newObj.transform.parent = parentObject.transform;//set parent to correct obj
                 }
             }
         }

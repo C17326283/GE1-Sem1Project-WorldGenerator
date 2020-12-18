@@ -22,11 +22,8 @@
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/box.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/box.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/boxShader.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/boxShader.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RandomGenSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +89,7 @@
       <workItem from="1606327181816" duration="2834000" />
       <workItem from="1606605001903" duration="12000" />
       <workItem from="1607091447097" duration="1195000" />
-      <workItem from="1608246237170" duration="3093000" />
+      <workItem from="1608246237170" duration="4120000" />
     </task>
     <servers />
   </component>

@@ -31,6 +31,7 @@
         </e>
         <e p="ObjectPool.cs" t="Include" />
         <e p="RandomGenSpawner.cs" t="Include" />
+        <e p="RotateEnvironment.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="EditMesh.cs" t="Include" />
           <e p="MeshGenerator.cs" t="Include" />
