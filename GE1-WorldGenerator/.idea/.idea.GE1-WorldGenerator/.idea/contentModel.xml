@@ -24,6 +24,13 @@
           <e p="TerrainTile.cs" t="Include" />
           <e p="Utilities.cs" t="Include" />
         </e>
+        <e p="LowPolyFantasyClouds" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="CloudsShader.shader" t="Include" />
+          </e>
+        </e>
+        <e p="ObjectPool.cs" t="Include" />
+        <e p="RandomGenSpawner.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="EditMesh.cs" t="Include" />
           <e p="MeshGenerator.cs" t="Include" />
