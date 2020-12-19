@@ -801,12 +801,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 58034b357322dff42b739d8e4860809f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 58034b357322dff42b739d8e4860809f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a14653dc18709d242a013bd6a523e4c2, type: 2}
     - target: {fileID: 919132149155446097, guid: 58034b357322dff42b739d8e4860809f, type: 3}
       propertyPath: m_Name
       value: CubeSphere-HighPoly-49K
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 58034b357322dff42b739d8e4860809f, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58034b357322dff42b739d8e4860809f, type: 3}
@@ -998,6 +1006,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830315676}
   m_Mesh: {fileID: 289301614986012343, guid: b13ec5d594820c642806da2b389ace02, type: 3}
+--- !u!1 &1882945931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 58034b357322dff42b739d8e4860809f, type: 3}
+  m_PrefabInstance: {fileID: 1724724633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &1882945933 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: -5754084199372789682, guid: 58034b357322dff42b739d8e4860809f, type: 3}
+  m_PrefabInstance: {fileID: 1724724633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882945936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882945931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8529d29c2c5605548b5a98171ada1de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshFilter: {fileID: 1882945933}
 --- !u!1 &2068870818
 GameObject:
   m_ObjectHideFlags: 0
