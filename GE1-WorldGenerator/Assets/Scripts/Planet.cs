@@ -26,6 +26,7 @@ public class Planet : MonoBehaviour
             meshFilters = new MeshFilter[6];
         }
         terrainFaces = new TerrainFace[6];
+        
 
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
 
@@ -39,9 +40,8 @@ public class Planet : MonoBehaviour
                 meshObj.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
-            
-                terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i]);
             }
+            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i]);
         }
     }
 
