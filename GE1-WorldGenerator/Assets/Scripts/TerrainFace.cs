@@ -36,7 +36,8 @@ public class TerrainFace : MonoBehaviour
                 int i = x + y * res;
                 Vector2 percent = new Vector2(x,y) / (res-1);
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;
-                vertices[i] = pointOnUnitCube;
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//inflate mesh to be sphere
+                vertices[i] = pointOnUnitSphere;
                 
                 if(x != res-1 &&  y != res-1)
                 {
