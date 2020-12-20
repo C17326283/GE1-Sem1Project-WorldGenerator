@@ -22,10 +22,17 @@
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CreateMesh.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CreateMesh.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ObjectPool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RandomGenSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RandomGenSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RotateEnvironment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RotateEnvironment.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +52,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ProGen.cs" />
         <option value="$PROJECT_DIR$/Assets/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/CreateMesh.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
       </list>
     </option>
   </component>
@@ -93,7 +102,7 @@
       <workItem from="1606605001903" duration="12000" />
       <workItem from="1607091447097" duration="1195000" />
       <workItem from="1608246237170" duration="4120000" />
-      <workItem from="1608415540939" duration="2199000" />
+      <workItem from="1608415540939" duration="6576000" />
     </task>
     <servers />
   </component>

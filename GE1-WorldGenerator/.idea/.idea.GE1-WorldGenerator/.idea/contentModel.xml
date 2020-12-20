@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CreateMesh.cs" t="Include" />
         <e p="Imports" t="Include">
           <e p="CellularNoise3D" t="Include">
             <e p="CellularNoise3D.hlsl" t="Include" />
@@ -36,14 +35,15 @@
             <e p="CloudsShader.shader" t="Include" />
           </e>
         </e>
-        <e p="ObjectPool.cs" t="Include" />
-        <e p="RandomGenSpawner.cs" t="Include" />
-        <e p="RotateEnvironment.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="CreateMesh.cs" t="Include" />
           <e p="EditMesh.cs" t="Include" />
           <e p="MeshGenerator.cs" t="Include" />
+          <e p="ObjectPool.cs" t="Include" />
           <e p="Planet.cs" t="Include" />
           <e p="ProGen.cs" t="Include" />
+          <e p="RandomGenSpawner.cs" t="Include" />
+          <e p="RotateEnvironment.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="TerrainFace.cs" t="Include" />
         </e>
