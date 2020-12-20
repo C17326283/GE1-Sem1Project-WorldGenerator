@@ -63,9 +63,9 @@ Material:
     m_Floats:
     - Vector1_5E4F05EE: 0
     - Vector1_6258D8F9: 4
-    - Vector1_884BD662: 1
+    - Vector1_884BD662: 84.15
     - Vector1_9EA6618B: 1
-    - Vector1_B5971DFE: 0.17
+    - Vector1_B5971DFE: 16.4
     - Vector1_EEADC2AA: 1
     - _AlphaClip: 0
     - _Blend: 0
@@ -92,7 +92,7 @@ Material:
     - Vector3_2B89185F: {r: 3, g: 3, b: 3, a: 0}
     - Vector3_527E90E2: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.32700467, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

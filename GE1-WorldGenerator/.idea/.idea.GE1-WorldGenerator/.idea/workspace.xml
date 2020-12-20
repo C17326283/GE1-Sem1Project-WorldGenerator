@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShapeSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShapeSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings 1/Shape.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings 1/Shape.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1607091447097" duration="1195000" />
       <workItem from="1608246237170" duration="4120000" />
       <workItem from="1608415540939" duration="7261000" />
-      <workItem from="1608465992731" duration="15612000" />
+      <workItem from="1608465992731" duration="16224000" />
     </task>
     <servers />
   </component>
