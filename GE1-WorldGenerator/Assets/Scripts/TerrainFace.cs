@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TerrainFace : MonoBehaviour
 {
+    private ShapeGenerator shapeGenerator;
     private Mesh mesh;
 
     private int res;
@@ -13,8 +14,10 @@ public class TerrainFace : MonoBehaviour
     private Vector3 axisB;
 
 
-    public TerrainFace(Mesh mesh, int res, Vector3 localUp)
+    //constructor for initalising the terrain face parameters
+    public TerrainFace(ShapeGenerator shapeGenerator, Mesh mesh, int res, Vector3 localUp)
     {
+        this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.res = res;
         this.localUp = localUp;
@@ -23,6 +26,7 @@ public class TerrainFace : MonoBehaviour
         axisB = Vector3.Cross(localUp, axisA);
     }
 
+    //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
         Vector3[] vertices = new Vector3[res*res];
@@ -33,12 +37,15 @@ public class TerrainFace : MonoBehaviour
         {
             for (int x = 0; x < res; x++)
             {
+                
                 int i = x + y * res;
                 Vector2 percent = new Vector2(x,y) / (res-1);
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//inflate mesh to be sphere
-                vertices[i] = pointOnUnitSphere;
+                //Move the varticies to where ti would be on the sphere
+                vertices[i] = shapeGenerator.CalculatePointOnPlanet(pointOnUnitSphere);
                 
+                //get trianle points from points on mesh
                 if(x != res-1 &&  y != res-1)
                 {
                     triangles[triIndex] = i;
@@ -54,9 +61,11 @@ public class TerrainFace : MonoBehaviour
             }
         }
         
+        //get the mesh points from the made points
         mesh.Clear();//clear data from mesh
         mesh.vertices = vertices;
         mesh.triangles = triangles;
+        
         mesh.RecalculateNormals();
     }
 }
