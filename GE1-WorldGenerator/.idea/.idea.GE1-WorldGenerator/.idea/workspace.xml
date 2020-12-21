@@ -20,21 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Land2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings 1/Colour.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings 1/Colour.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings 1/Shape.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings 1/Shape.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,12 +56,12 @@
         <option value="$PROJECT_DIR$/Assets/Settings 1/NoiseSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MinMax.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
       </list>
     </option>
   </component>
@@ -124,7 +112,7 @@
       <workItem from="1608246237170" duration="4120000" />
       <workItem from="1608415540939" duration="7261000" />
       <workItem from="1608465992731" duration="23427000" />
-      <workItem from="1608572838028" duration="13361000" />
+      <workItem from="1608572838028" duration="14334000" />
     </task>
     <servers />
   </component>

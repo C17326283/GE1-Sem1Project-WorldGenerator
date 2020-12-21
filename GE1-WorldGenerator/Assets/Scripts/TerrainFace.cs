@@ -32,17 +32,20 @@ public class TerrainFace : MonoBehaviour
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
+        //make an array for verticies and triangles based on the resolution
         Vector3[] vertices = new Vector3[res*res];
-        int[] triangles = new int[(res-1)*(res-1)*6];
-        int triIndex = 0;
+        int[] triangles = new int[(res-1)*(res-1)*6];//-1 to avoid the points at end that dont need triangles
+        int triIndex = 0;//Index for each individual point
 
+        //edit each vertex to the right position
         for (int y = 0; y < res; y++)
         {
             for (int x = 0; x < res; x++)
             {
                 
-                int i = x + y * res;
-                Vector2 percent = new Vector2(x,y) / (res-1);
+                int i = x + y * res;//get the point on the grid
+                //Debug.Log(i);
+                Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//inflate mesh to be sphere
                 //Move the varticies to where ti would be on the sphere

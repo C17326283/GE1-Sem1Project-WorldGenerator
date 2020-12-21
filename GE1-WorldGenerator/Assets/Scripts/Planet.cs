@@ -67,7 +67,7 @@ public class Planet : MonoBehaviour
                 
             }
             
-            int randBiome = Random.Range(0, 2);//todo make this based on amount of biomes
+            int randBiome = Random.Range(0, 3);//todo make this based on amount of biomes
 
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
