@@ -19,6 +19,7 @@ public class Planet : MonoBehaviour
 
     //Info about the generated shape
     private ShapeGenerator shapeGenerator;
+    private ColourGenerator colourGenerator;
     
     //Info about faces
     [SerializeField, HideInInspector]
@@ -38,6 +39,7 @@ public class Planet : MonoBehaviour
     void Initialize()
     {
         shapeGenerator = new ShapeGenerator(shapeSettings);
+        colourGenerator = new ColourGenerator(colourSettings);
         
         //make the 6 sides of the cube that will be spherized
         if (meshFilters == null || meshFilters.Length == 0)
@@ -58,10 +60,13 @@ public class Planet : MonoBehaviour
                 GameObject meshObj = new GameObject("mesh");
                 meshObj.transform.parent = transform;
             
-                meshObj.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+                meshObj.AddComponent<MeshRenderer>();
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
+                
             }
+
+            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
             //add to list of faces
             terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i]);
         }
@@ -83,7 +88,7 @@ public class Planet : MonoBehaviour
     }
 
     //If only the colour settings have changed then you can just update the colours
-    public void OnColourSettingsUpdated()
+    public void OnColourSettingsUpdated() 
     {
         Initialize(); 
         GenerateColours();
@@ -96,13 +101,14 @@ public class Planet : MonoBehaviour
         {
             face.ConstructMesh();
         }
+        colourGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
     }
 
     void GenerateColours()
     {
         foreach (MeshFilter m in meshFilters)
         {
-            m.GetComponent<MeshRenderer>().sharedMaterial.color = colourSettings.planetColour;
+            //m.GetComponent<MeshRenderer>().sharedMaterial.color = colourSettings.planetColour;
         }
     }
 }

@@ -36,10 +36,12 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="ColourGenerator.cs" t="Include" />
           <e p="ColourSettings.cs" t="Include" />
           <e p="CreateMesh.cs" t="Include" />
           <e p="EditMesh.cs" t="Include" />
           <e p="MeshGenerator.cs" t="Include" />
+          <e p="MinMax.cs" t="Include" />
           <e p="Noise.cs" t="Include" />
           <e p="NoiseFilter.cs" t="Include" />
           <e p="ObjectPool.cs" t="Include" />
@@ -55,6 +57,13 @@
         </e>
         <e p="Settings 1" t="Include">
           <e p="NoiseSettings.cs" t="Include" />
+        </e>
+        <e p="Starfield Skybox" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Script" t="Include">
+              <e p="LookCamera.cs" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
       <e p="GE1-WorldGenerator.sln" t="IncludeFlat" />
