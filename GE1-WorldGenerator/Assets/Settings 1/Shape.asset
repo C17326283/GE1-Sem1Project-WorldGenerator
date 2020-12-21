@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b12575e87661e4f9df453fee199c5e, type: 3}
   m_Name: Shape
   m_EditorClassIdentifier: 
-  planetRadius: 10
+  planetRadius: 83
   noiseLayers:
   - enabled: 1
     noiseSettings:
-      strength: 0.03
-      roughness: 2.33
+      strength: 0.025
+      roughness: 2.13
       NumOfNoiseLayers: 12
       persistance: 0.58
       baseRoughness: 1.06

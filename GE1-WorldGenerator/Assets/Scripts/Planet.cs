@@ -18,8 +18,8 @@ public class Planet : MonoBehaviour
     [HideInInspector] public bool colourSettingsFoldout;
 
     //Info about the generated shape
-    private ShapeGenerator shapeGenerator;
-    private ColourGenerator colourGenerator;
+    private ShapeGenerator shapeGenerator = new ShapeGenerator();
+    private ColourGenerator colourGenerator = new ColourGenerator();
     
     //Info about faces
     [SerializeField, HideInInspector]
@@ -38,8 +38,8 @@ public class Planet : MonoBehaviour
     //If first time making shape then generate all the faces
     void Initialize()
     {
-        shapeGenerator = new ShapeGenerator(shapeSettings);
-        colourGenerator = new ColourGenerator(colourSettings);
+        shapeGenerator.UpdateSettings(shapeSettings);
+        colourGenerator.UpdateSettings(colourSettings);
         
         //make the 6 sides of the cube that will be spherized
         if (meshFilters == null || meshFilters.Length == 0)
@@ -106,9 +106,6 @@ public class Planet : MonoBehaviour
 
     void GenerateColours()
     {
-        foreach (MeshFilter m in meshFilters)
-        {
-            //m.GetComponent<MeshRenderer>().sharedMaterial.color = colourSettings.planetColour;
-        }
+        colourGenerator.UpdateColours();
     }
 }

@@ -11,7 +11,7 @@ public class ShapeGenerator
     private NoiseFilter[] noiseFilters;
     public MinMax elevationMinMax;//for getting the highest and lowest points
 
-    public ShapeGenerator(ShapeSettings settings)
+    public void UpdateSettings(ShapeSettings settings)
     {
         this.settings = settings;
         noiseFilters = new NoiseFilter[settings.noiseLayers.Length];

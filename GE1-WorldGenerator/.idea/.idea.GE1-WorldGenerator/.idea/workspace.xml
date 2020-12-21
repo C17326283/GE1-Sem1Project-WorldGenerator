@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" afterDir="false" />
@@ -65,10 +65,10 @@
         <option value="$PROJECT_DIR$/Assets/Settings 1/NoiseSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MinMax.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ColourSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +119,7 @@
       <workItem from="1608246237170" duration="4120000" />
       <workItem from="1608415540939" duration="7261000" />
       <workItem from="1608465992731" duration="23427000" />
-      <workItem from="1608572838028" duration="2919000" />
+      <workItem from="1608572838028" duration="5079000" />
     </task>
     <servers />
   </component>
