@@ -30,7 +30,7 @@ public class PlanetEditor : Editor
         }
 
         DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapEditor);
-        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
+        DrawSettingsEditor(planet.planetSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
     }
 
     void DrawSettingsEditor(Object settings, System.Action onSettingsUpdated,ref bool foldout, ref Editor editor)

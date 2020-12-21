@@ -8,6 +8,7 @@ public class TerrainFace : MonoBehaviour
     private Mesh mesh;
 
     private int res;
+    public int biome;
 
     private Vector3 localUp;
     private Vector3 axisA;
@@ -15,12 +16,14 @@ public class TerrainFace : MonoBehaviour
 
 
     //constructor for initalising the terrain face parameters
-    public TerrainFace(ShapeGenerator shapeGenerator, Mesh mesh, int res, Vector3 localUp)
+    public TerrainFace(ShapeGenerator shapeGenerator, Mesh mesh, int res, Vector3 localUp, int biome)
     {
         this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.res = res;
         this.localUp = localUp;
+        this.biome = biome;
+        
         
         axisA = new Vector3(localUp.y, localUp.z,localUp.x);
         axisB = Vector3.Cross(localUp, axisA);

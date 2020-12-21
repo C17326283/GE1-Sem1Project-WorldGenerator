@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Planet : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Planet : MonoBehaviour
     
     //settings for editing shape and colour
     public ShapeSettings shapeSettings;
-    public ColourSettings colourSettings;
+    public PlanetSettings planetSettings;
 
     [HideInInspector] public bool shapeSettingsFoldout;
     [HideInInspector] public bool colourSettingsFoldout;
@@ -25,8 +26,8 @@ public class Planet : MonoBehaviour
     [SerializeField, HideInInspector]
     private MeshFilter[] meshFilters;
     private TerrainFace[] terrainFaces;
-    
-    
+
+
 
 
     //Whenever anything is changed in editor
@@ -39,7 +40,7 @@ public class Planet : MonoBehaviour
     void Initialize()
     {
         shapeGenerator.UpdateSettings(shapeSettings);
-        colourGenerator.UpdateSettings(colourSettings);
+        colourGenerator.UpdateSettings(planetSettings);
         
         //make the 6 sides of the cube that will be spherized
         if (meshFilters == null || meshFilters.Length == 0)
@@ -65,10 +66,12 @@ public class Planet : MonoBehaviour
                 meshFilters[i].sharedMesh = new Mesh();
                 
             }
+            
+            int randBiome = Random.Range(0, 2);//todo make this based on amount of biomes
 
-            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = colourSettings.planetMaterial;
+            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
-            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i]);
+            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i], randBiome);
         }
     }
 

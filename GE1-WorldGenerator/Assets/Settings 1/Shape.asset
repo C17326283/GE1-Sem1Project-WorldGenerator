@@ -17,7 +17,7 @@ MonoBehaviour:
   - enabled: 1
     noiseSettings:
       strength: 0.025
-      roughness: 2.13
+      roughness: 2.88
       NumOfNoiseLayers: 12
       persistance: 0.58
       baseRoughness: 1.06
@@ -37,7 +37,7 @@ MonoBehaviour:
   - enabled: 0
     noiseSettings:
       strength: 0.374
-      roughness: 2.49
+      roughness: 2.57
       NumOfNoiseLayers: 4
       persistance: 0.54
       baseRoughness: 1.44
