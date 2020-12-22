@@ -31,7 +31,7 @@ public class ColourGenerator
     //update all the material parametes with the elevation heights so terrain levels are always correct
     public void UpdateElevation(MinMax elevationMinMax)
     {
-        Debug.Log(settings.planetMaterials.Length);
+//        Debug.Log(settings.planetMaterials.Length);
         for (int i = 0; i < settings.planetMaterials.Length; i++)
         {
             //set the min point as x and max as y

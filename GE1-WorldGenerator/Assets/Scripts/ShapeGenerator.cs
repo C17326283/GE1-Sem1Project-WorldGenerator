@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ShapeGenerator
 {
-    
+    /*
     private PlanetSettings settings;
     private NoiseLayer[] noiseLayers;
     public MinMax elevationMinMax;//for getting the highest and lowest points
@@ -50,5 +50,5 @@ public class ShapeGenerator
         return pointOnUnitSphere * elevation;
 
     }
-    
+    */
 }

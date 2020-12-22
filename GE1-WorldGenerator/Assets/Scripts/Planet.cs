@@ -26,6 +26,8 @@ public class Planet : MonoBehaviour
     [SerializeField, HideInInspector]
     private MeshFilter[] meshFilters;
     private TerrainFace[] terrainFaces;
+    
+    public MinMax elevationMinMax;//for getting the highest and lowest points
 
 
 
@@ -39,7 +41,6 @@ public class Planet : MonoBehaviour
     //If first time making shape then generate all the faces
     void Initialize()
     {
-        shapeGenerator.UpdateSettings(planetSettings);
         colourGenerator.UpdateSettings(planetSettings);
         
         //make the 6 sides of the cube that will be spherized
@@ -56,6 +57,7 @@ public class Planet : MonoBehaviour
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
         {
+            UpdateSettings(planetSettings);
             //todo try to split face further
             if (meshFilters[i] == null)
             {
@@ -72,7 +74,7 @@ public class Planet : MonoBehaviour
 
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
-            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i], randBiome);
+            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
         }
     }
 
@@ -105,11 +107,16 @@ public class Planet : MonoBehaviour
         {
             face.ConstructMesh();
         }
-        colourGenerator.UpdateElevation(shapeGenerator.elevationMinMax);
+        colourGenerator.UpdateElevation(elevationMinMax);
     }
 
     void GenerateColours()
     {
         colourGenerator.UpdateColours();
+    }
+    
+    public void UpdateSettings(PlanetSettings settings)
+    {
+        elevationMinMax = new MinMax();
     }
 }
