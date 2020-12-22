@@ -32,7 +32,7 @@ public class TerrainFace : MonoBehaviour
         this.mesh2 = mesh2;
         this.mesh3 = mesh3;
         this.mesh4 = mesh4;
-        this.res = res;
+        this.res = ((int)res/2)*2;//make res divisible by 2 by halving which gets teh whole number and multiplying again
         this.localUp = localUp;
         this.elevationMinMax = elevationMinMax;
         this.settings = planetSettings;
@@ -46,22 +46,22 @@ public class TerrainFace : MonoBehaviour
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
-        int r = (res/2)+1;
+        int halfRes = res/2;
         
         //make an array for verticies and triangles based on the resolution
         Vector3[] allVertices = new Vector3[res*res];
         //GameObject[] faceQuads = new GameObject[4];//intialize array
-        Vector3[] vertices1 = new Vector3[r*r];
-        Vector3[] vertices2 = new Vector3[r*r];
-        Vector3[] vertices3 = new Vector3[r*r];
-        Vector3[] vertices4 = new Vector3[r*r];
+        Vector3[] vertices1 = new Vector3[halfRes*halfRes];
+        Vector3[] vertices2 = new Vector3[halfRes*halfRes];
+        Vector3[] vertices3 = new Vector3[halfRes*halfRes];
+        Vector3[] vertices4 = new Vector3[halfRes*halfRes];
         
         
         int[] allTriangles = new int[(res-1)*(res-1)*6];//res-1^2 is num of faces * by 2 triangles per square * verticies per triangle
-        int[] triangles1 = new int[(r - 1) * (r - 1) * 6];
-        int[] triangles2 = new int[(r - 1) * (r - 1) * 6];
-        int[] triangles3 = new int[(r - 1) * (r - 1) * 6];
-        int[] triangles4 = new int[(r - 1) * (r - 1) * 6];
+        int[] triangles1 = new int[(halfRes - 1) * (halfRes - 1) * 6];
+        int[] triangles2 = new int[(halfRes - 1) * (halfRes - 1) * 6];
+        int[] triangles3 = new int[(halfRes - 1) * (halfRes - 1) * 6];
+        int[] triangles4 = new int[(halfRes - 1) * (halfRes - 1) * 6];
         int allTriIndex = 0;//Index for each individual point
         int triIndex1 = 0;
         int triIndex2 = 0;
@@ -85,79 +85,86 @@ public class TerrainFace : MonoBehaviour
                 
                 //use the spherized point with noise to find where it should be
                 allVertices[i] = AddNoiseToVertex(pointOnUnitSphere);
-                
+
+
                 //understood verticies using this vid at this time https://youtu.be/QN39W020LqU?t=439
                 //set the points to make triangles from vertexes//just based on way the points are indexed
-                if(x != res-1 &&  y != res-1)//as long as not on the right or bottom edge
-                {
-                    //first triangle of square points. on a 4x4 grid this would be 0,5,4 because of clockwise allocation
-                    allTriangles[allTriIndex] = i;
-                    allTriangles[allTriIndex+1] = i+res+1;
-                    allTriangles[allTriIndex+2] = i+res;
-                    
-                    //second triangle of square points. 0,1,5
-                    allTriangles[allTriIndex+3] = i;
-                    allTriangles[allTriIndex+4] = i+1;
-                    allTriangles[allTriIndex+5] = i+res+1;
-                    
-                    allTriIndex += 6;
+                
 
-                    if (x<r-1 && y<r-1)//top left quad of shape
+                if (x < halfRes && y < halfRes) //top left quad of shape
+                {
+                    vertices1[k1] = allVertices[i];
+                    if (x < halfRes - 1 && y < halfRes - 1) //top left quad of shape
                     {
-                        vertices1[k1] = allVertices[i];
-                        triangles1[triIndex1] = k1;//first vertex
-                        triangles1[triIndex1 + 1] = k1 + r + 1;//second vertex of the first triangle
-                        triangles1[triIndex1 + 2] = k1 + r;
+                        triangles1[triIndex1] = k1; //first vertex
+                        triangles1[triIndex1 + 1] = k1 + halfRes + 1; //second vertex of the first triangle
+                        triangles1[triIndex1 + 2] = k1 + halfRes;
 
                         triangles1[triIndex1 + 3] = k1;
                         triangles1[triIndex1 + 4] = k1 + 1;
-                        triangles1[triIndex1 + 5] = k1 + r + 1;
+                        triangles1[triIndex1 + 5] = k1 + halfRes + 1;
                         triIndex1 += 6;
-                        k1++;
                     }
-                    else if (x>r-1 && y<r-1)//top right
+
+                    k1++;
+                }
+                else if (x >= halfRes && y < halfRes) //top right
+                {
+                    vertices2[k2] = allVertices[i];
+                    if (x > halfRes - 1 && y < halfRes - 1) //top right
                     {
-                        vertices2[k2] = allVertices[i];
-                        triangles2[triIndex2] = k2;//first vertex
-                        triangles2[triIndex2 + 1] = k2 + r + 1;//second vertex of the first triangle
-                        triangles2[triIndex2 + 2] = k2 + r;
+                        //vertices2[k2] = allVertices[i];
+                        triangles2[triIndex2] = k2; //first vertex
+                        triangles2[triIndex2 + 1] = k2 + halfRes + 1; //second vertex of the first triangle
+                        triangles2[triIndex2 + 2] = k2 + halfRes;
 
                         triangles2[triIndex2 + 3] = k2;
                         triangles2[triIndex2 + 4] = k2 + 1;
-                        triangles2[triIndex2 + 5] = k2 + r + 1;
+                        triangles2[triIndex2 + 5] = k2 + halfRes + 1;
 
                         triIndex2 += 6;
-                        k2++;
                     }
-                    else if (x<r-1 && y>r-1)//bottom left
+                    k2++;
+                }
+                else if (x < halfRes && y >= halfRes) //top right
+                {
+                    vertices3[k3] = allVertices[i];
+                    if (x < halfRes - 1 && y > halfRes - 1) //bottom left
                     {
                         vertices3[k3] = allVertices[i];
-                        triangles3[triIndex3] = k3;//first vertex
-                        triangles3[triIndex3 + 1] = k3 + r + 1;//second vertex of the first triangle
-                        triangles3[triIndex3 + 2] = k3 + r;
+                        triangles3[triIndex3] = k3; //first vertex
+                        triangles3[triIndex3 + 1] = k3 + halfRes + 1; //second vertex of the first triangle
+                        triangles3[triIndex3 + 2] = k3 + halfRes;
 
                         triangles3[triIndex3 + 3] = k3;
                         triangles3[triIndex3 + 4] = k3 + 1;
-                        triangles3[triIndex3 + 5] = k3 + r + 1;
+                        triangles3[triIndex3 + 5] = k3 + halfRes + 1;
 
                         triIndex3 += 6;
-                        k3++;
+                        
                     }
-                    else if (x>r-1 && y>r-1)//bottom right
+                    k3++;
+                }
+                else if (x >= halfRes && y >= halfRes) //top right
+                {
+                    vertices3[k3] = allVertices[i];
+                    if (x > halfRes - 1 && y > halfRes - 1) //bottom right
                     {
                         vertices4[k4] = allVertices[i];
-                        triangles4[triIndex4] = k4;//first vertex
-                        triangles4[triIndex4 + 1] = k4 + r + 1;//second vertex of the first triangle
-                        triangles4[triIndex4 + 2] = k4 + r;
+                        triangles4[triIndex4] = k4; //first vertex
+                        triangles4[triIndex4 + 1] = k4 + halfRes + 1; //second vertex of the first triangle
+                        triangles4[triIndex4 + 2] = k4 + halfRes;
 
                         triangles4[triIndex4 + 3] = k4;
                         triangles4[triIndex4 + 4] = k4 + 1;
-                        triangles4[triIndex4 + 5] = k4 + r + 1;
+                        triangles4[triIndex4 + 5] = k4 + halfRes + 1;
 
                         triIndex4 += 6;
-                        k4++;
+                        
                     }
+                    k4++;
                 }
+
 
                 i++;
 
@@ -171,6 +178,7 @@ public class TerrainFace : MonoBehaviour
         mesh2.vertices = vertices2;
         mesh2.triangles = triangles2;
         mesh2.RecalculateNormals();
+        /*
         mesh3.Clear();//clear data from mesh for when recalculating resolution
         mesh3.vertices = vertices3;
         mesh3.triangles = triangles3;
@@ -179,6 +187,11 @@ public class TerrainFace : MonoBehaviour
         mesh4.vertices = vertices4;
         mesh4.triangles = triangles4;
         mesh4.RecalculateNormals();
+        */
+        foreach (var vert in vertices1)
+        {
+            Debug.Log("x"+vert.x+"y"+vert.y+"z"+vert.z);
+        }
     }
     
     public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)

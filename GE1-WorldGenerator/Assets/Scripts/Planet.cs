@@ -60,7 +60,6 @@ public class Planet : MonoBehaviour
             //todo try to split face further
             for (int j = 0; j < 4; j++)
             {
-                print(k+""+j);
                 if (meshFilters[k+j] == null)
                 {
                     GameObject meshObj = new GameObject("mesh");
