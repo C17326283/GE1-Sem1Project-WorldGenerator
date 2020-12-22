@@ -111,8 +111,19 @@ public class TerrainFace : MonoBehaviour
         }
 
         elevation = settings.planetRadius * (1 + elevation);
-        elevationMinMax.AddValue(elevation);
-        return pointOnUnitSphere * elevation;
+        //Debug.Log(elevation);
+        //check if is exact radius, if so then lower it to allow for the water mesh to be fitted properly
+        if (elevation < settings.planetRadius+0.3f)
+        {
+            //dont evaluated point so the colours dont rely on water level
+            elevation = (settings.planetRadius * 1)-1f;
+            return pointOnUnitSphere * elevation;
+        }
+        else
+        {
+            elevationMinMax.AddValue(elevation);
+            return pointOnUnitSphere * elevation;
+        }
 
     }
 }

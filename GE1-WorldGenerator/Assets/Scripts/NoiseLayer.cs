@@ -45,8 +45,8 @@ public class NoiseLayer
         }
 
         noiseValue = Mathf.Max(0, noiseValue - minValue);//clamp so anything with noise doesnt go below water level, leaving space for other object
-        if (noiseValue < waterLevel)
-            noiseValue = 0 - 0.1f;
+        //if (noiseValue < waterLevel)
+        //    noiseValue = 0 - 0.1f;
         
         return noiseValue * strength;
     }
