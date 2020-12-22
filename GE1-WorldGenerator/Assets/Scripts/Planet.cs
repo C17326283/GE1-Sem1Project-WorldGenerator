@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
 
     
     //settings for editing shape and colour
-    public ShapeSettings shapeSettings;
+    //public ShapeSettings shapeSettings;
     public PlanetSettings planetSettings;
 
     [HideInInspector] public bool shapeSettingsFoldout;
@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
     //If first time making shape then generate all the faces
     void Initialize()
     {
-        shapeGenerator.UpdateSettings(shapeSettings);
+        shapeGenerator.UpdateSettings(planetSettings);
         colourGenerator.UpdateSettings(planetSettings);
         
         //make the 6 sides of the cube that will be spherized
@@ -56,6 +56,7 @@ public class Planet : MonoBehaviour
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
         {
+            //todo try to split face further
             if (meshFilters[i] == null)
             {
                 GameObject meshObj = new GameObject("mesh");
@@ -84,18 +85,18 @@ public class Planet : MonoBehaviour
     }
     
     //In only shape settings have changed then can just update mesh
-    public void OnShapeSettingsUpdated()
-    {
-        Initialize(); 
-        GenerateMesh();
-    }
+ //   public void OnShapeSettingsUpdated()
+//    {
+//        Initialize(); 
+ //       GenerateMesh();
+ //   }
 
     //If only the colour settings have changed then you can just update the colours
-    public void OnColourSettingsUpdated() 
-    {
-        Initialize(); 
-        GenerateColours();
-    }
+//    public void OnColourSettingsUpdated() 
+//    {
+//        Initialize(); 
+//        GenerateColours();
+//    }
     
     //Make mesh from all terrain faces
     void GenerateMesh()

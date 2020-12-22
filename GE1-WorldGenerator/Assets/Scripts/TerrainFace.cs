@@ -44,7 +44,6 @@ public class TerrainFace : MonoBehaviour
             {
                 
                 int i = x + y * res;//get the point on the grid
-                //Debug.Log(i);
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//inflate mesh to be sphere

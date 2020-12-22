@@ -7,11 +7,11 @@ using UnityEngine;
 public class ShapeGenerator
 {
     
-    private ShapeSettings settings;
+    private PlanetSettings settings;
     private NoiseFilter[] noiseFilters;
     public MinMax elevationMinMax;//for getting the highest and lowest points
 
-    public void UpdateSettings(ShapeSettings settings)
+    public void UpdateSettings(PlanetSettings settings)
     {
         this.settings = settings;
         noiseFilters = new NoiseFilter[settings.noiseLayers.Length];
