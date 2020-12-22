@@ -50,7 +50,7 @@ public class Planet : MonoBehaviour
         
         
         //get all the directions to be used as the sides of the cube
-        Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
+        Vector3[] directions = { new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(1,0,1), new Vector3(0,1,1), new Vector3(0,0,1)};
     
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
@@ -65,8 +65,6 @@ public class Planet : MonoBehaviour
                 meshObj.AddComponent<MeshRenderer>();
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
-                
-                
             }
             
             int randBiome = Random.Range(0, planetSettings.biomeGradients.Length);//todo make this based on amount of biomes
@@ -74,6 +72,7 @@ public class Planet : MonoBehaviour
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
+            meshFilters[i].transform.position = this.transform.position;
         }
     }
 

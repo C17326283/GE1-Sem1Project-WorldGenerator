@@ -7,10 +7,10 @@ public class TerrainFace : MonoBehaviour
     //private ShapeGenerator shapeGenerator;
     private Mesh mesh;
 
-    private int res;
+    private int res;//resolution of mesh
     public int biome;
 
-    private Vector3 localUp;
+    private Vector3 localUp;//the way its facing
     private Vector3 axisA;
     private Vector3 axisB;
     
@@ -33,8 +33,8 @@ public class TerrainFace : MonoBehaviour
         this.noiseLayers = planetSettings.noiseLayers;//copy all noise layers from planetSettings
         
         
-        axisA = new Vector3(localUp.y, localUp.z,localUp.x);
-        axisB = Vector3.Cross(localUp, axisA);
+        axisA = new Vector3(localUp.y, localUp.z,localUp.x);//swap coords to get axis along face
+        axisB = Vector3.Cross(localUp, axisA);//use cross product to get angle perpendicular to terrain and axisa
     }
 
     //Make the actual mesh of the face with verticies and triangles
@@ -42,7 +42,7 @@ public class TerrainFace : MonoBehaviour
     {
         //make an array for verticies and triangles based on the resolution
         Vector3[] vertices = new Vector3[res*res];
-        int[] triangles = new int[(res-1)*(res-1)*6];//-1 to avoid the points at end that dont need triangles
+        int[] triangles = new int[(res-1)*(res-1)*6];//res-1^2 is num of faces * by 2 triangles per square * verticies per triangle
         int triIndex = 0;//Index for each individual point
 
         //edit each vertex to the right position on sphere
