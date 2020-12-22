@@ -20,13 +20,16 @@ public class NoiseLayer
     public float baseRoughness = 1;
     [Range(0, 10)] 
     public float minValue;
+    [Range(0, 1)] 
+    public float waterLevel = 1;
+    public float waterDepth = 1;
 
     public Vector3 centre;
 
     //use the noise from libnoise-dotnet.
     Noise noise = new Noise();
     
-    public float Evaluate(Vector3 point)
+    public float AddNoise(Vector3 point)
     {
         //float noiseValue = (noise.Evaluate(point * settings.roughness + settings.centre) + 1) * .5f;
         float noiseValue = 0;
@@ -41,7 +44,9 @@ public class NoiseLayer
             amplitude *= persistance;
         }
 
-        noiseValue = Mathf.Max(0, noiseValue - minValue);//flatten to min Value
+        noiseValue = Mathf.Max(0, noiseValue - minValue);//clamp so anything with noise doesnt go below water level, leaving space for other object
+        if (noiseValue < waterLevel)
+            noiseValue = 0 - 0.1f;
         
         return noiseValue * strength;
     }

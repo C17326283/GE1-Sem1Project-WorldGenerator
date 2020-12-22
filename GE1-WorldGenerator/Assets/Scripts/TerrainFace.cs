@@ -30,7 +30,7 @@ public class TerrainFace : MonoBehaviour
         this.biome = biome;
         this.elevationMinMax = elevationMinMax;
         this.settings = planetSettings;
-        this.noiseLayers = planetSettings.noiseLayers;
+        this.noiseLayers = planetSettings.noiseLayers;//copy all noise layers from planetSettings
         
         
         axisA = new Vector3(localUp.y, localUp.z,localUp.x);
@@ -93,7 +93,7 @@ public class TerrainFace : MonoBehaviour
         //Use the previous layers as a mask so spikes go on top of other mountains not randomly
         if (noiseLayers.Length > 0)
         {
-            firstLayerValue = noiseLayers[0].Evaluate(pointOnUnitSphere);
+            firstLayerValue = noiseLayers[0].AddNoise(pointOnUnitSphere);
             if (settings.noiseLayers[0].enabled)
             {
                 elevation = firstLayerValue;
@@ -106,7 +106,7 @@ public class TerrainFace : MonoBehaviour
             if (settings.noiseLayers[i].enabled)
             {
                 float mask = (settings.noiseLayers[i].useFirstLayerAsMask) ? firstLayerValue : 1;//? if true do this else set default of 1
-                elevation += noiseLayers[i].Evaluate(pointOnUnitSphere) * mask;
+                elevation += noiseLayers[i].AddNoise(pointOnUnitSphere) * mask;
             }
         }
 

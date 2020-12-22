@@ -17,8 +17,8 @@ MonoBehaviour:
     key0: {r: 0.2688679, g: 0.53365624, b: 1, a: 1}
     key1: {r: 0.92966306, g: 1, b: 0.051886797, a: 1}
     key2: {r: 1, g: 0.9759224, b: 0.19339621, a: 0}
-    key3: {r: 0.1514774, g: 0.8679245, b: 0.23350926, a: 0}
-    key4: {r: 0.20425417, g: 0.8490566, b: 0.3295245, a: 0}
+    key3: {r: 0.30584726, g: 0.8207547, b: 0.36525965, a: 0}
+    key4: {r: 0.26699895, g: 0.754717, b: 0.36158672, a: 0}
     key5: {r: 0.6132076, g: 0.54663134, b: 0.3326362, a: 0}
     key6: {r: 0.5377358, g: 0.4638488, b: 0.23082057, a: 0}
     key7: {r: 1, g: 1, b: 1, a: 0}
@@ -42,18 +42,18 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   - serializedVersion: 2
-    key0: {r: 0.5518868, g: 0.713304, b: 1, a: 1}
-    key1: {r: 0.8632076, g: 0.945283, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.2663314, g: 0.5276237, b: 0.990566, a: 1}
+    key1: {r: 0.875445, g: 0.93524015, b: 0.9716981, a: 1}
+    key2: {r: 0.8632076, g: 0.945283, b: 1, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32189
-    ctime2: 65535
-    ctime3: 0
+    ctime1: 65535
+    ctime2: 43176
+    ctime3: 65535
     ctime4: 0
     ctime5: 0
     ctime6: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   - serializedVersion: 2
     key0: {r: 0.2688679, g: 0.53365624, b: 1, a: 1}
@@ -80,10 +80,10 @@ MonoBehaviour:
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 386
-    ctime2: 2891
-    ctime3: 20817
+    ctime2: 8867
+    ctime3: 30069
     ctime4: 39707
-    ctime5: 40670
+    ctime5: 53392
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -97,39 +97,10 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  - serializedVersion: 2
-    key0: {r: 0.05098039, g: 0.5738328, b: 1, a: 1}
-    key1: {r: 0.5707547, g: 0.80666226, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 1, g: 1, b: 1, a: 0}
-    key4: {r: 1, g: 1, b: 1, a: 0}
-    key5: {r: 1, g: 1, b: 1, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 386
-    ctime1: 65535
-    ctime2: 40670
-    ctime3: 40670
-    ctime4: 40670
-    ctime5: 40670
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
   planetMaterials:
   - {fileID: 2100000, guid: a14653dc18709d242a013bd6a523e4c2, type: 2}
   - {fileID: 2100000, guid: ed9670897af9a6f49aac5de37805de9a, type: 2}
   - {fileID: 2100000, guid: 63b915a37b3874c4185d8cfd39ff9fb2, type: 2}
-  - {fileID: 2100000, guid: ea2e4fb9ccc03924cae5d28a909c2e9d, type: 2}
   planetRadius: 78
   noiseLayers:
   - enabled: 1
@@ -140,6 +111,8 @@ MonoBehaviour:
     persistance: 0.59
     baseRoughness: 1.23
     minValue: 1.13
+    waterLevel: 0.023
+    waterDepth: 1
     centre: {x: 0, y: 0, z: 0}
   - enabled: 1
     useFirstLayerAsMask: 1
@@ -149,6 +122,8 @@ MonoBehaviour:
     persistance: 1.39
     baseRoughness: 0.33
     minValue: 4.17
+    waterLevel: 0
+    waterDepth: 1
     centre: {x: 0, y: 1.36, z: 0}
   - enabled: 1
     useFirstLayerAsMask: 1
@@ -158,4 +133,6 @@ MonoBehaviour:
     persistance: 0.5
     baseRoughness: 1
     minValue: 0
+    waterLevel: 1
+    waterDepth: 1
     centre: {x: 0, y: 0, z: 0}

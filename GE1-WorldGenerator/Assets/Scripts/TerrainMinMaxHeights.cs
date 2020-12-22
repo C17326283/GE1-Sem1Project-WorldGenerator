@@ -26,6 +26,7 @@ public class TerrainMinMaxHeights
         if (v < Min)
         {
             Min = v;
+            Debug.Log(Min);
         }
     }
 }
