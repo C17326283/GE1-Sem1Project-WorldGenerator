@@ -15,11 +15,9 @@ public class Planet : MonoBehaviour
     //public ShapeSettings shapeSettings;
     public PlanetSettings planetSettings;
 
-    [HideInInspector] public bool shapeSettingsFoldout;
     [HideInInspector] public bool colourSettingsFoldout;
 
     //Info about the generated shape
-    private ShapeGenerator shapeGenerator = new ShapeGenerator();
     private ColourGenerator colourGenerator = new ColourGenerator();
     
     //Info about faces
@@ -27,7 +25,7 @@ public class Planet : MonoBehaviour
     private MeshFilter[] meshFilters;
     private TerrainFace[] terrainFaces;
     
-    public MinMax elevationMinMax;//for getting the highest and lowest points
+    public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
 
 
 
@@ -68,13 +66,14 @@ public class Planet : MonoBehaviour
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
                 
+                
             }
             
             int randBiome = Random.Range(0, 3);//todo make this based on amount of biomes
 
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
-            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
+            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
         }
     }
 
@@ -83,22 +82,8 @@ public class Planet : MonoBehaviour
     {
         Initialize();
         GenerateMesh();
-        GenerateColours();
+        GenerateColours();//turn this back on, its just annoying for editing
     }
-    
-    //In only shape settings have changed then can just update mesh
- //   public void OnShapeSettingsUpdated()
-//    {
-//        Initialize(); 
- //       GenerateMesh();
- //   }
-
-    //If only the colour settings have changed then you can just update the colours
-//    public void OnColourSettingsUpdated() 
-//    {
-//        Initialize(); 
-//        GenerateColours();
-//    }
     
     //Make mesh from all terrain faces
     void GenerateMesh()
@@ -107,16 +92,16 @@ public class Planet : MonoBehaviour
         {
             face.ConstructMesh();
         }
-        colourGenerator.UpdateElevation(elevationMinMax);
+        colourGenerator.UpdateHeightInShader(elevationMinMax);
     }
 
     void GenerateColours()
     {
-        colourGenerator.UpdateColours();
+        colourGenerator.UpdateTextureInShader();
     }
     
     public void UpdateSettings(PlanetSettings settings)
     {
-        elevationMinMax = new MinMax();
+        elevationMinMax = new TerrainMinMaxHeights();
     }
 }

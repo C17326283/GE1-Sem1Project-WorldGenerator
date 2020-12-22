@@ -29,7 +29,7 @@ public class ColourGenerator
     }
     
     //update all the material parametes with the elevation heights so terrain levels are always correct
-    public void UpdateElevation(MinMax elevationMinMax)
+    public void UpdateHeightInShader(TerrainMinMaxHeights elevationMinMax)
     {
 //        Debug.Log(settings.planetMaterials.Length);
         for (int i = 0; i < settings.planetMaterials.Length; i++)
@@ -40,7 +40,7 @@ public class ColourGenerator
     }
 
     //Colour the texture based on the gradients
-    public void UpdateColours()
+    public void UpdateTextureInShader()
     {
         //Make a different colour for each pixel of texture
         Color[] colours = new Color[textureResolution];

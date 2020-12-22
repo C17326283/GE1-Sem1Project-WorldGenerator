@@ -26,7 +26,7 @@ public class PlanetEditor : Editor
 
         if (GUILayout.Button("Generate Planet"))
         {
-            
+            planet.GeneratePlanet();
         }
 
         //DrawSettingsEditor(planet.shapeSettings, planet.GeneratePlanet, ref planet.shapeSettingsFoldout, ref shapEditor);

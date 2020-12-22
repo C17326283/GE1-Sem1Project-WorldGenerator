@@ -16,12 +16,12 @@ public class TerrainFace : MonoBehaviour
     
     private PlanetSettings settings;
     private NoiseLayer[] noiseLayers;
-    private MinMax elevationMinMax;
+    private TerrainMinMaxHeights elevationMinMax;
 
 
 
     //constructor for initalising the terrain face parameters
-    public TerrainFace(ShapeGenerator shapeGenerator, Mesh mesh, int res, Vector3 localUp, int biome, MinMax elevationMinMax,PlanetSettings planetSettings)
+    public TerrainFace(Mesh mesh, int res, Vector3 localUp, int biome, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
     {
         //this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
@@ -55,8 +55,10 @@ public class TerrainFace : MonoBehaviour
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
+                
+                
                 //use the spherized point with noise to find where it should be
-                vertices[i] = CalculatePointOnPlanet(pointOnUnitSphere);
+                vertices[i] = AddNoiseToVertex(pointOnUnitSphere);
                 
                 //get trianle points from points on mesh
                 if(x != res-1 &&  y != res-1)
@@ -82,7 +84,7 @@ public class TerrainFace : MonoBehaviour
         mesh.RecalculateNormals();
     }
     
-    public Vector3 CalculatePointOnPlanet(Vector3 pointOnUnitSphere)
+    public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)
     {
         float firstLayerValue = 0;
         //float elevation = noiseFilter.Evaluate(pointOnUnitSphere);

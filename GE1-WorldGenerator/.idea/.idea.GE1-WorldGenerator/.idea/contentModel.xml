@@ -37,23 +37,17 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ColourGenerator.cs" t="Include" />
-          <e p="CreateMesh.cs" t="Include" />
-          <e p="EditMesh.cs" t="Include" />
-          <e p="MeshGenerator.cs" t="Include" />
-          <e p="MinMax.cs" t="Include" />
           <e p="Noise.cs" t="Include" />
           <e p="NoiseLayer.cs" t="Include" />
-          <e p="NoiseSettings.cs" t="Include" />
           <e p="ObjectPool.cs" t="Include" />
           <e p="Planet.cs" t="Include" />
           <e p="PlanetEditor.cs" t="Include" />
           <e p="PlanetSettings.cs" t="Include" />
-          <e p="ProGen.cs" t="Include" />
           <e p="RandomGenSpawner.cs" t="Include" />
           <e p="RotateEnvironment.cs" t="Include" />
-          <e p="ShapeGenerator.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="TerrainFace.cs" t="Include" />
+          <e p="TerrainMinMaxHeights.cs" t="Include" />
         </e>
         <e p="Starfield Skybox" t="Include">
           <e p="Demo" t="Include">

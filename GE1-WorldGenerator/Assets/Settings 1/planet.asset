@@ -97,10 +97,39 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
+  - serializedVersion: 2
+    key0: {r: 0.05098039, g: 0.5738328, b: 1, a: 1}
+    key1: {r: 0.5707547, g: 0.80666226, b: 1, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 1, g: 1, b: 1, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 386
+    ctime1: 65535
+    ctime2: 40670
+    ctime3: 40670
+    ctime4: 40670
+    ctime5: 40670
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   planetMaterials:
   - {fileID: 2100000, guid: a14653dc18709d242a013bd6a523e4c2, type: 2}
   - {fileID: 2100000, guid: ed9670897af9a6f49aac5de37805de9a, type: 2}
   - {fileID: 2100000, guid: 63b915a37b3874c4185d8cfd39ff9fb2, type: 2}
+  - {fileID: 2100000, guid: ea2e4fb9ccc03924cae5d28a909c2e9d, type: 2}
   planetRadius: 78
   noiseLayers:
   - enabled: 1
@@ -115,7 +144,7 @@ MonoBehaviour:
   - enabled: 1
     useFirstLayerAsMask: 1
     strength: 1
-    roughness: 3.49
+    roughness: 3.15
     NumOfNoiseLayers: 4
     persistance: 1.39
     baseRoughness: 0.33
