@@ -101,25 +101,32 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a14653dc18709d242a013bd6a523e4c2, type: 2}
   - {fileID: 2100000, guid: ed9670897af9a6f49aac5de37805de9a, type: 2}
   - {fileID: 2100000, guid: 63b915a37b3874c4185d8cfd39ff9fb2, type: 2}
-  planetRadius: 62.71
+  planetRadius: 77.55
   noiseLayers:
   - enabled: 1
-    noiseSettings:
-      strength: 0.1
-      roughness: 1.73
-      NumOfNoiseLayers: 11
-      persistance: 0.54
-      baseRoughness: 0.95
-      minValue: 0.94
-      centre: {x: 0, y: 0, z: 0}
-    useFirstLayerAsMask: 1
-  - enabled: 1
-    noiseSettings:
-      strength: 0.32
-      roughness: 1.5
-      NumOfNoiseLayers: 10
-      persistance: 0.65
-      baseRoughness: 1
-      minValue: 1.81
-      centre: {x: 0, y: 0, z: 0}
     useFirstLayerAsMask: 0
+    strength: 0.08
+    roughness: 1.63
+    NumOfNoiseLayers: 8
+    persistance: 0.59
+    baseRoughness: 1.23
+    minValue: 1.13
+    centre: {x: 0, y: 0, z: 0}
+  - enabled: 0
+    useFirstLayerAsMask: 1
+    strength: 0.1
+    roughness: 1
+    NumOfNoiseLayers: 1
+    persistance: 0.5
+    baseRoughness: 1
+    minValue: 0
+    centre: {x: 0, y: 0, z: 0}
+  - enabled: 1
+    useFirstLayerAsMask: 1
+    strength: 0.1
+    roughness: 1
+    NumOfNoiseLayers: 1
+    persistance: 0.5
+    baseRoughness: 1
+    minValue: 0
+    centre: {x: 0, y: 0, z: 0}

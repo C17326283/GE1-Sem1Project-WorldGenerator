@@ -8,17 +8,13 @@ public class ShapeGenerator
 {
     
     private PlanetSettings settings;
-    private NoiseFilter[] noiseFilters;
+    private NoiseLayer[] noiseLayers;
     public MinMax elevationMinMax;//for getting the highest and lowest points
 
     public void UpdateSettings(PlanetSettings settings)
     {
         this.settings = settings;
-        noiseFilters = new NoiseFilter[settings.noiseLayers.Length];
-        for (int i = 0; i < noiseFilters.Length; i++)
-        {
-            noiseFilters[i] = new NoiseFilter(settings.noiseLayers[i].noiseSettings);
-        }
+        noiseLayers = settings.noiseLayers;
         elevationMinMax = new MinMax();
         
     }
@@ -30,9 +26,9 @@ public class ShapeGenerator
         float elevation = 0;
         
         //Use the previous layers as a mask so spikes go on top of other mountains not randomly
-        if (noiseFilters.Length > 0)
+        if (noiseLayers.Length > 0)
         {
-            firstLayerValue = noiseFilters[0].Evaluate(pointOnUnitSphere);
+            firstLayerValue = noiseLayers[0].Evaluate(pointOnUnitSphere);
             if (settings.noiseLayers[0].enabled)
             {
                 elevation = firstLayerValue;
@@ -40,13 +36,12 @@ public class ShapeGenerator
         }
             
             
-        for (int i = 1; i < noiseFilters.Length; i++)
+        for (int i = 1; i < noiseLayers.Length; i++)
         {
             if (settings.noiseLayers[i].enabled)
             {
-                
                 float mask = (settings.noiseLayers[i].useFirstLayerAsMask) ? firstLayerValue : 1;//? if true do this else set default of 1
-                elevation += noiseFilters[i].Evaluate(pointOnUnitSphere) * mask;
+                elevation += noiseLayers[i].Evaluate(pointOnUnitSphere) * mask;
             }
         }
 
