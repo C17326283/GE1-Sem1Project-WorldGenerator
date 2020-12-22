@@ -40,28 +40,31 @@ public class TerrainFace : MonoBehaviour
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
+        int meshHalf = 5;
+        
         //make an array for verticies and triangles based on the resolution
         Vector3[] vertices = new Vector3[res*res];
+        Vector3[] vertices2 = new Vector3[meshHalf*meshHalf];
         int[] triangles = new int[(res-1)*(res-1)*6];//res-1^2 is num of faces * by 2 triangles per square * verticies per triangle
+        int[] triangles2 = new int[(meshHalf - 1) * (meshHalf - 1) * 6];
         int triIndex = 0;//Index for each individual point
 
+        int i = 0;
         //edit each vertex to the right position on sphere
         for (int y = 0; y < res; y++)
         {
             for (int x = 0; x < res; x++)
             {
-                
-                int i = x + y * res;//get the point on the grid
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
-                Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
+                Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point on grid
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
                 
                 
                 //use the spherized point with noise to find where it should be
                 vertices[i] = AddNoiseToVertex(pointOnUnitSphere);
                 
-                //get trianle points from points on mesh
-                if(x != res-1 &&  y != res-1)
+                //make triangles from points on mesh//just based on way the points are indexed
+                if(x != res-1 &&  y != res-1)//as long as not on the right or bottom edge
                 {
                     triangles[triIndex] = i;
                     triangles[triIndex+1] = i+res+1;
@@ -70,14 +73,37 @@ public class TerrainFace : MonoBehaviour
                     triangles[triIndex+3] = i;
                     triangles[triIndex+4] = i+1;
                     triangles[triIndex+5] = i+res+1;
-
-                    triIndex += 6;
                 }
+                /*
+
+                if(x != meshHalf-1 &&  y != meshHalf-1 && i < meshHalf)
+                {
+                    Debug.Log(vertices2.Length+" "+i);
+                    vertices2[i] = vertices[i];
+                    
+
+                    if (x != meshHalf - 2 && y != meshHalf - 2) //as long as not on the right or bottom edge
+                    {
+                        Debug.Log(i);
+                        triangles2[triIndex] = i;
+                        triangles2[triIndex+1] = i+res+1;
+                        triangles2[triIndex+2] = i+res;
+                    
+                        triangles2[triIndex+3] = i;
+                        triangles2[triIndex+4] = i+1;
+                        triangles2[triIndex+5] = i+res+1;
+
+                    }
+                }
+                */
+                triIndex += 6;
+                
+
+                i++;
             }
         }
+        mesh.Clear();//clear data from mesh for when recalculating resolution
         
-        //get the mesh points from the made points
-        mesh.Clear();//clear data from mesh
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         

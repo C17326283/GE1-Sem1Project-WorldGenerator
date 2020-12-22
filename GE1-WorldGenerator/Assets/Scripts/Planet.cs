@@ -20,9 +20,9 @@ public class Planet : MonoBehaviour
     //Info about the generated shape
     private ColourGenerator colourGenerator = new ColourGenerator();
     
-    //Info about faces
+    //Info about faces 
     [SerializeField, HideInInspector]
-    private MeshFilter[] meshFilters;
+    private MeshFilter[] meshFilters;//all the mesh objects
     private TerrainFace[] terrainFaces;
     
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
@@ -50,7 +50,7 @@ public class Planet : MonoBehaviour
         
         
         //get all the directions to be used as the sides of the cube
-        Vector3[] directions = { new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(0,0,1), new Vector3(1,0,1), new Vector3(0,1,1), new Vector3(0,0,1)};
+        Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
     
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
@@ -61,6 +61,7 @@ public class Planet : MonoBehaviour
             {
                 GameObject meshObj = new GameObject("mesh");
                 meshObj.transform.parent = transform;
+                meshObj.transform.position = transform.position;
             
                 meshObj.AddComponent<MeshRenderer>();
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
@@ -72,7 +73,6 @@ public class Planet : MonoBehaviour
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
-            meshFilters[i].transform.position = this.transform.position;
         }
     }
 
