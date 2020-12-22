@@ -21,15 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Land2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land2.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Land3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land3.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainMinMaxHeights.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainMinMaxHeights.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings 1/planet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings 1/planet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +40,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LookAtLerp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Noise.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -66,6 +65,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainMinMaxHeights.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LookAtLerp.cs" />
       </list>
     </option>
   </component>
@@ -118,7 +118,7 @@
       <workItem from="1608465992731" duration="23427000" />
       <workItem from="1608572838028" duration="26300000" />
       <workItem from="1608606673265" duration="240000" />
-      <workItem from="1608632159516" duration="3458000" />
+      <workItem from="1608632159516" duration="4913000" />
     </task>
     <servers />
   </component>
