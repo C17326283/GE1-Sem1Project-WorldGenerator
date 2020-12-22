@@ -116,7 +116,7 @@
       <workItem from="1608465992731" duration="23427000" />
       <workItem from="1608572838028" duration="26300000" />
       <workItem from="1608606673265" duration="240000" />
-      <workItem from="1608632159516" duration="24360000" />
+      <workItem from="1608632159516" duration="28985000" />
     </task>
     <servers />
   </component>
@@ -226,24 +226,5 @@
     </state>
     <state x="385" y="263" width="666" height="534" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1608633745421" />
     <state x="385" y="263" width="666" height="534" key="find.popup/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1608633346050" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs</url>
-          <line>110</line>
-          <properties documentPath="C:\Users\ryand\GitHub\GE1-Sem1Project-WorldGenerator\GE1-WorldGenerator\Assets\Scripts\TerrainFace.cs" initialLine="85">
-            <startOffsets>
-              <option value="4703" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4728" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

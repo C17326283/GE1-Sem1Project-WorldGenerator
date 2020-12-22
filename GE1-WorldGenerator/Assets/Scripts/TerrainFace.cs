@@ -40,7 +40,7 @@ public class TerrainFace : MonoBehaviour
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
-        int r = 4;
+        int r = (res/2)+1;
         
         //make an array for verticies and triangles based on the resolution
         Vector3[] vertices = new Vector3[res*res];
@@ -50,13 +50,13 @@ public class TerrainFace : MonoBehaviour
         int triIndex = 0;//Index for each individual point
         int triIndex2 = 0;//Index for each individual point
 
-        //int i = 0;
+        int i = 0;
+        int k = 0;
         //edit each vertex to the right position on sphere
         for (int y = 0; y < res; y++)
         {
             for (int x = 0; x < res; x++)
             {
-                int i = x + y * res;
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point on grid
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
@@ -64,40 +64,42 @@ public class TerrainFace : MonoBehaviour
                 
                 //use the spherized point with noise to find where it should be
                 vertices[i] = AddNoiseToVertex(pointOnUnitSphere);
-                if(x != r-1 &&  y != r-1 && i <= r)
-                    vertices2[i] = vertices[i];
                 
                 //understood verticies using this vid at this time https://youtu.be/QN39W020LqU?t=439
                 //set the points to make triangles from vertexes//just based on way the points are indexed
                 if(x != res-1 &&  y != res-1)//as long as not on the right or bottom edge
                 {
                     //first triangle of square points. on a 4x4 grid this would be 0,5,4 because of clockwise allocation
-                    triangles[triIndex2] = i;
-                    triangles[triIndex2+1] = i+res+1;
-                    triangles[triIndex2+2] = i+res;
+                    triangles[triIndex] = i;
+                    triangles[triIndex+1] = i+res+1;
+                    triangles[triIndex+2] = i+res;
                     
                     //second triangle of square points. 0,1,5
-                    triangles[triIndex2+3] = i;
-                    triangles[triIndex2+4] = i+1;
-                    triangles[triIndex2+5] = i+res+1;
+                    triangles[triIndex+3] = i;
+                    triangles[triIndex+4] = i+1;
+                    triangles[triIndex+5] = i+res+1;
 
                     if (x<r-1 && y<r-1)
                     {
-                        int k = x + y * r;
-                        Debug.Log(triIndex2+"    "+k+"    "+triangles2.Length);
-                        triangles2[triIndex] = k;//first vertex
-                        triangles2[triIndex + 1] = k + res + 1;//second vertex of the first triangle
-                        triangles2[triIndex + 2] = k + res;
+                        vertices2[k] = vertices[i];
+                        Debug.Log(triIndex2+"    k"+k+"    triangles2.Length"+triangles2.Length+"     i"+i+"     x"+x+"     y"+y);
+                        triangles2[triIndex2] = k;//first vertex
+                        triangles2[triIndex2 + 1] = k + r + 1;//second vertex of the first triangle
+                        triangles2[triIndex2 + 2] = k + r;
 
-                        triangles2[triIndex + 3] = k;
-                        triangles2[triIndex + 4] = k + 1;
-                        triangles2[triIndex + 5] = k + res + 1;
+                        triangles2[triIndex2 + 3] = k;
+                        triangles2[triIndex2 + 4] = k + 1;
+                        triangles2[triIndex2 + 5] = k + r + 1;
 
                         triIndex2 += 6;
+                        k++;
                     }
 
                     triIndex += 6;
                 }
+
+                i++;
+
                 /*
 
                 if(x != meshHalf-1 &&  y != meshHalf-1 && i < meshHalf)
