@@ -35,7 +35,7 @@ public class Planet : MonoBehaviour
     //Whenever anything is changed in editor
     private void OnValidate()
     {
-        GeneratePlanet();
+        //GeneratePlanet();
     }
 
     //If first time making shape then generate all the faces

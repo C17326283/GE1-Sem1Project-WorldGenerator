@@ -37,6 +37,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ColourGenerator.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="GuiGenerator.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />

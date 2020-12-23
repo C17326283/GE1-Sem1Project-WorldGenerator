@@ -10,8 +10,8 @@ public class PlanetSettings : ScriptableObject
     public Gradient[] biomeGradients;
     public Material[] planetMaterials;
 
-    
-    public float planetRadius =1;
+    [HideInInspector]
+    public float planetRadius =100;//always public, could change in future but scaling works for other planets
     public NoiseLayer[] noiseLayers;
 
     //public GameObject biomeObj;
