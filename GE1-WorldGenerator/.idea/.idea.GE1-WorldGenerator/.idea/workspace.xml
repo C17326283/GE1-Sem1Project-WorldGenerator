@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandBiomes.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandBiomes.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings 1/planet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings 1/planet.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/biomes - Copy.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/biomes - Copy.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/biomes.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/biomes.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +119,7 @@
       <workItem from="1608572838028" duration="26300000" />
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
-      <workItem from="1608737854841" duration="3307000" />
+      <workItem from="1608737854841" duration="4008000" />
     </task>
     <servers />
   </component>
