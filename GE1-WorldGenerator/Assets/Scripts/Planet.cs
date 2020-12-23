@@ -54,6 +54,7 @@ public class Planet : MonoBehaviour
     
         //todo add water object
         //todo add atmoshereobject
+        //todo add the spawners
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
         {
@@ -61,9 +62,10 @@ public class Planet : MonoBehaviour
             //todo try to split face further
             if (meshFilters[i] == null)
             {
-                GameObject meshObj = new GameObject("mesh");
+                GameObject meshObj = new GameObject("PlanetFaceMesh");
                 meshObj.transform.parent = transform;
                 meshObj.transform.position = transform.position;
+                meshObj.transform.tag = "Ground";//for letting the spawners hit it
             
                 meshObj.AddComponent<MeshRenderer>();
                 meshObj.AddComponent<MeshCollider>();
@@ -73,11 +75,11 @@ public class Planet : MonoBehaviour
                 
             }
             
-            int randBiome = Random.Range(0, planetSettings.biomeGradients.Length);//todo make this based on amount of biomes
+            //int randBiome = Random.Range(0, planetSettings.biomeGradients.Length);//todo make this based on amount of biomes
 
-            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[randBiome];
+            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[0];
             //add to list of faces
-            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i], randBiome,elevationMinMax, planetSettings);
+            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings);
         }
     }
 

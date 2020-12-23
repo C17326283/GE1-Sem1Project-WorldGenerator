@@ -98,7 +98,7 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   planetMaterials:
-  - {fileID: 2100000, guid: a14653dc18709d242a013bd6a523e4c2, type: 2}
+  - {fileID: 2100000, guid: 30254c7b84e31aa45bdf1294912cc037, type: 2}
   - {fileID: 2100000, guid: ed9670897af9a6f49aac5de37805de9a, type: 2}
   - {fileID: 2100000, guid: 63b915a37b3874c4185d8cfd39ff9fb2, type: 2}
   planetRadius: 77.7

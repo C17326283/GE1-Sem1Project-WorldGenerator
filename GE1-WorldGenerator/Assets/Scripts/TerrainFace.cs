@@ -21,13 +21,12 @@ public class TerrainFace : MonoBehaviour
 
 
     //constructor for initalising the terrain face parameters
-    public TerrainFace(Mesh mesh, int res, Vector3 localUp, int biome, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
+    public TerrainFace(Mesh mesh, int res, Vector3 localUp, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
     {
         //this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.res = res;
         this.localUp = localUp;
-        this.biome = biome;
         this.elevationMinMax = elevationMinMax;
         this.settings = planetSettings;
         this.noiseLayers = planetSettings.noiseLayers;//copy all noise layers from planetSettings

@@ -55,7 +55,9 @@ public class ColourGenerator
                 textures[i].SetPixels(colours);
                 textures[i].Apply();
                 //Apply this new texture to the materials parameter for shader graph
-                settings.planetMaterials[i].SetTexture("_texture",textures[i]);
+                settings.planetMaterials[i].SetTexture("_texture",textures[0]);
+                settings.planetMaterials[i].SetTexture("_texture2",textures[1]);
+                //settings.planetMaterials[i].SetVector("_objPos",textures[i]);
             }
         }
     }
