@@ -128,7 +128,7 @@ MonoBehaviour:
   - enabled: 1
     useFirstLayerAsMask: 1
     strength: 0.1
-    roughness: 1
+    roughness: 0.87
     NumOfNoiseLayers: 1
     persistance: 0.5
     baseRoughness: 1

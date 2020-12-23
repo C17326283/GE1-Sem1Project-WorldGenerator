@@ -32,7 +32,7 @@ public class TerrainFace : MonoBehaviour
         this.mesh2 = mesh2;
         this.mesh3 = mesh3;
         this.mesh4 = mesh4;
-        this.res = ((int)res/2)*2;//make res divisible by 2 by halving which gets teh whole number and multiplying again
+        this.res = Mathf.CeilToInt(res / 2)*2;//make res divisible by 2 by halving which gets teh whole number and multiplying again//todo maybe this causes gap?
         this.localUp = localUp;
         this.elevationMinMax = elevationMinMax;
         this.settings = planetSettings;
@@ -46,7 +46,7 @@ public class TerrainFace : MonoBehaviour
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
-        int halfRes = res/2;
+        int halfRes = Mathf.CeilToInt(res / 2);
         
         //make an array for verticies and triangles based on the resolution
         Vector3[] allVertices = new Vector3[res*res];
@@ -91,7 +91,8 @@ public class TerrainFace : MonoBehaviour
                 //set the points to make triangles from vertexes//just based on way the points are indexed
                 
 
-                if (x < halfRes && y < halfRes) //top left quad of shape
+                
+                if (x < halfRes && y < halfRes) //top left quad of shape//todo <= ?
                 {
                     vertices1[k1] = allVertices[i];
                     if (x < halfRes - 1 && y < halfRes - 1) //top left quad of shape
@@ -108,12 +109,13 @@ public class TerrainFace : MonoBehaviour
 
                     k1++;
                 }
+                
                 else if (x >= halfRes && y < halfRes) //top right
                 {
                     vertices2[k2] = allVertices[i];
-                    if (x > halfRes - 1 && y < halfRes - 1) //top right
+                    Debug.Log(k2);
+                    if (x >= halfRes && x < res-1 && y < halfRes-1) //top right
                     {
-                        //vertices2[k2] = allVertices[i];
                         triangles2[triIndex2] = k2; //first vertex
                         triangles2[triIndex2 + 1] = k2 + halfRes + 1; //second vertex of the first triangle
                         triangles2[triIndex2 + 2] = k2 + halfRes;
@@ -126,12 +128,12 @@ public class TerrainFace : MonoBehaviour
                     }
                     k2++;
                 }
-                else if (x < halfRes && y >= halfRes) //top right
+                /*
+                else if (x < halfRes && y >= halfRes) //bottom left
                 {
                     vertices3[k3] = allVertices[i];
-                    if (x < halfRes - 1 && y > halfRes - 1) //bottom left
+                    if (x < halfRes - 1 && y >= halfRes && y < res - 1) //bottom left
                     {
-                        vertices3[k3] = allVertices[i];
                         triangles3[triIndex3] = k3; //first vertex
                         triangles3[triIndex3 + 1] = k3 + halfRes + 1; //second vertex of the first triangle
                         triangles3[triIndex3 + 2] = k3 + halfRes;
@@ -145,12 +147,14 @@ public class TerrainFace : MonoBehaviour
                     }
                     k3++;
                 }
-                else if (x >= halfRes && y >= halfRes) //top right
+                
+                /*
+                if (x >= halfRes && y >= halfRes) //top right
                 {
+                    Debug.Log(x+","+y);
                     vertices3[k3] = allVertices[i];
-                    if (x > halfRes - 1 && y > halfRes - 1) //bottom right
+                    if (x >= halfRes && x < res-1 && y >= halfRes && y < res - 1) //bottom right
                     {
-                        vertices4[k4] = allVertices[i];
                         triangles4[triIndex4] = k4; //first vertex
                         triangles4[triIndex4 + 1] = k4 + halfRes + 1; //second vertex of the first triangle
                         triangles4[triIndex4 + 2] = k4 + halfRes;
@@ -160,38 +164,36 @@ public class TerrainFace : MonoBehaviour
                         triangles4[triIndex4 + 5] = k4 + halfRes + 1;
 
                         triIndex4 += 6;
-                        
                     }
                     k4++;
                 }
-
+                */
 
                 i++;
 
             }
         }
+        
         mesh1.Clear();//clear data from mesh for when recalculating resolution
         mesh1.vertices = vertices1;
         mesh1.triangles = triangles1;
         mesh1.RecalculateNormals();
+        
         mesh2.Clear();//clear data from mesh for when recalculating resolution
         mesh2.vertices = vertices2;
         mesh2.triangles = triangles2;
         mesh2.RecalculateNormals();
-        /*
+        
         mesh3.Clear();//clear data from mesh for when recalculating resolution
         mesh3.vertices = vertices3;
         mesh3.triangles = triangles3;
         mesh3.RecalculateNormals();
+        
         mesh4.Clear();//clear data from mesh for when recalculating resolution
         mesh4.vertices = vertices4;
         mesh4.triangles = triangles4;
         mesh4.RecalculateNormals();
-        */
-        foreach (var vert in vertices1)
-        {
-            Debug.Log("x"+vert.x+"y"+vert.y+"z"+vert.z);
-        }
+        
     }
     
     public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)
