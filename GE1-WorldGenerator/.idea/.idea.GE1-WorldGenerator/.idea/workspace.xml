@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandBiomes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandBiomes.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/LandBiomes.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandBiomes.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +61,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ShapeGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MinMax.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainMinMaxHeights.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LookAtLerp.cs" />
         <option value="$PROJECT_DIR$/Assets/biome.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +125,7 @@
       <workItem from="1608572838028" duration="26300000" />
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
-      <workItem from="1608737854841" duration="4008000" />
+      <workItem from="1608737854841" duration="7443000" />
     </task>
     <servers />
   </component>

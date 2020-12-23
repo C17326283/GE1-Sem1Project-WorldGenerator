@@ -25,7 +25,9 @@ public class Planet : MonoBehaviour
     private MeshFilter[] meshFilters;
     private TerrainFace[] terrainFaces;
     
+    
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
+    public GameObject[] biomeObjs;//4
 
 
 
@@ -103,7 +105,7 @@ public class Planet : MonoBehaviour
 
     void GenerateColours()
     {
-        colourGenerator.UpdateTextureInShader();
+        colourGenerator.UpdateTextureInShader(biomeObjs[0],biomeObjs[1]);
     }
     
     public void UpdateSettings(PlanetSettings settings)
