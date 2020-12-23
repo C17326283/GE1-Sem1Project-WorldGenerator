@@ -5,195 +5,83 @@ using UnityEngine;
 public class TerrainFace : MonoBehaviour
 {
     //private ShapeGenerator shapeGenerator;
-    private Mesh mesh1;
-    private Mesh mesh2;
-    private Mesh mesh3;
-    private Mesh mesh4;
+    private Mesh mesh;
 
-    private int res;//resolution of mesh
+    private int res;
     public int biome;
 
-    private Vector3 localUp;//the way its facing
+    private Vector3 localUp;
     private Vector3 axisA;
     private Vector3 axisB;
     
     private PlanetSettings settings;
     private NoiseLayer[] noiseLayers;
-    private GameObject[] faceQuads;
     private TerrainMinMaxHeights elevationMinMax;
 
 
 
     //constructor for initalising the terrain face parameters
-    public TerrainFace(Mesh mesh1,Mesh mesh2,Mesh mesh3,Mesh mesh4, int res, Vector3 localUp, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
+    public TerrainFace(Mesh mesh, int res, Vector3 localUp, int biome, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
     {
         //this.shapeGenerator = shapeGenerator;
-        this.mesh1 = mesh1;
-        this.mesh2 = mesh2;
-        this.mesh3 = mesh3;
-        this.mesh4 = mesh4;
-        this.res = Mathf.CeilToInt(res / 2)*2;//make res divisible by 2 by halving which gets teh whole number and multiplying again//todo maybe this causes gap?
+        this.mesh = mesh;
+        this.res = res;
         this.localUp = localUp;
+        this.biome = biome;
         this.elevationMinMax = elevationMinMax;
         this.settings = planetSettings;
         this.noiseLayers = planetSettings.noiseLayers;//copy all noise layers from planetSettings
         
         
-        axisA = new Vector3(localUp.y, localUp.z,localUp.x);//swap coords to get axis along face
-        axisB = Vector3.Cross(localUp, axisA);//use cross product to get angle perpendicular to terrain and axisa
+        axisA = new Vector3(localUp.y, localUp.z,localUp.x);
+        axisB = Vector3.Cross(localUp, axisA);
     }
 
     //Make the actual mesh of the face with verticies and triangles
     public void ConstructMesh()
     {
-        int halfRes = Mathf.CeilToInt(res / 2);
-        
         //make an array for verticies and triangles based on the resolution
-        Vector3[] allVertices = new Vector3[res*res];
-        //GameObject[] faceQuads = new GameObject[4];//intialize array
-        Vector3[] vertices1 = new Vector3[halfRes*halfRes];
-        Vector3[] vertices2 = new Vector3[halfRes*halfRes];
-        Vector3[] vertices3 = new Vector3[halfRes*halfRes];
-        Vector3[] vertices4 = new Vector3[halfRes*halfRes];
-        
-        
-        int[] allTriangles = new int[(res-1)*(res-1)*6];//res-1^2 is num of faces * by 2 triangles per square * verticies per triangle
-        int[] triangles1 = new int[(halfRes - 1) * (halfRes - 1) * 6];
-        int[] triangles2 = new int[(halfRes - 1) * (halfRes - 1) * 6];
-        int[] triangles3 = new int[(halfRes - 1) * (halfRes - 1) * 6];
-        int[] triangles4 = new int[(halfRes - 1) * (halfRes - 1) * 6];
-        int allTriIndex = 0;//Index for each individual point
-        int triIndex1 = 0;
-        int triIndex2 = 0;
-        int triIndex3 = 0;
-        int triIndex4 = 0;
+        Vector3[] vertices = new Vector3[res*res];
+        int[] triangles = new int[(res-1)*(res-1)*6];//-1 to avoid the points at end that dont need triangles
+        int triIndex = 0;//Index for each individual point
 
-        int i = 0;
-        int k1 = 0;
-        int k2 = 0;
-        int k3 = 0;
-        int k4 = 0;
         //edit each vertex to the right position on sphere
         for (int y = 0; y < res; y++)
         {
             for (int x = 0; x < res; x++)
             {
+                
+                int i = x + y * res;//get the point on the grid
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
-                Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point on grid
+                Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
                 
                 
                 //use the spherized point with noise to find where it should be
-                allVertices[i] = AddNoiseToVertex(pointOnUnitSphere);
-
-
-                //understood verticies using this vid at this time https://youtu.be/QN39W020LqU?t=439
-                //set the points to make triangles from vertexes//just based on way the points are indexed
+                vertices[i] = AddNoiseToVertex(pointOnUnitSphere);
                 
-
-                
-                if (x < halfRes && y < halfRes) //top left quad of shape//todo <= ?
+                //get trianle points from points on mesh
+                if(x != res-1 &&  y != res-1)
                 {
-                    vertices1[k1] = allVertices[i];
-                    if (x < halfRes - 1 && y < halfRes - 1) //top left quad of shape
-                    {
-                        triangles1[triIndex1] = k1; //first vertex
-                        triangles1[triIndex1 + 1] = k1 + halfRes + 1; //second vertex of the first triangle
-                        triangles1[triIndex1 + 2] = k1 + halfRes;
+                    triangles[triIndex] = i;
+                    triangles[triIndex+1] = i+res+1;
+                    triangles[triIndex+2] = i+res;
+                    
+                    triangles[triIndex+3] = i;
+                    triangles[triIndex+4] = i+1;
+                    triangles[triIndex+5] = i+res+1;
 
-                        triangles1[triIndex1 + 3] = k1;
-                        triangles1[triIndex1 + 4] = k1 + 1;
-                        triangles1[triIndex1 + 5] = k1 + halfRes + 1;
-                        triIndex1 += 6;
-                    }
-
-                    k1++;
+                    triIndex += 6;
                 }
-                
-                else if (x >= halfRes && y < halfRes) //top right
-                {
-                    vertices2[k2] = allVertices[i];
-                    Debug.Log(k2);
-                    if (x >= halfRes && x < res-1 && y < halfRes-1) //top right
-                    {
-                        triangles2[triIndex2] = k2; //first vertex
-                        triangles2[triIndex2 + 1] = k2 + halfRes + 1; //second vertex of the first triangle
-                        triangles2[triIndex2 + 2] = k2 + halfRes;
-
-                        triangles2[triIndex2 + 3] = k2;
-                        triangles2[triIndex2 + 4] = k2 + 1;
-                        triangles2[triIndex2 + 5] = k2 + halfRes + 1;
-
-                        triIndex2 += 6;
-                    }
-                    k2++;
-                }
-                /*
-                else if (x < halfRes && y >= halfRes) //bottom left
-                {
-                    vertices3[k3] = allVertices[i];
-                    if (x < halfRes - 1 && y >= halfRes && y < res - 1) //bottom left
-                    {
-                        triangles3[triIndex3] = k3; //first vertex
-                        triangles3[triIndex3 + 1] = k3 + halfRes + 1; //second vertex of the first triangle
-                        triangles3[triIndex3 + 2] = k3 + halfRes;
-
-                        triangles3[triIndex3 + 3] = k3;
-                        triangles3[triIndex3 + 4] = k3 + 1;
-                        triangles3[triIndex3 + 5] = k3 + halfRes + 1;
-
-                        triIndex3 += 6;
-                        
-                    }
-                    k3++;
-                }
-                
-                /*
-                if (x >= halfRes && y >= halfRes) //top right
-                {
-                    Debug.Log(x+","+y);
-                    vertices3[k3] = allVertices[i];
-                    if (x >= halfRes && x < res-1 && y >= halfRes && y < res - 1) //bottom right
-                    {
-                        triangles4[triIndex4] = k4; //first vertex
-                        triangles4[triIndex4 + 1] = k4 + halfRes + 1; //second vertex of the first triangle
-                        triangles4[triIndex4 + 2] = k4 + halfRes;
-
-                        triangles4[triIndex4 + 3] = k4;
-                        triangles4[triIndex4 + 4] = k4 + 1;
-                        triangles4[triIndex4 + 5] = k4 + halfRes + 1;
-
-                        triIndex4 += 6;
-                    }
-                    k4++;
-                }
-                */
-
-                i++;
-
             }
         }
         
-        mesh1.Clear();//clear data from mesh for when recalculating resolution
-        mesh1.vertices = vertices1;
-        mesh1.triangles = triangles1;
-        mesh1.RecalculateNormals();
+        //get the mesh points from the made points
+        mesh.Clear();//clear data from mesh
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
         
-        mesh2.Clear();//clear data from mesh for when recalculating resolution
-        mesh2.vertices = vertices2;
-        mesh2.triangles = triangles2;
-        mesh2.RecalculateNormals();
-        
-        mesh3.Clear();//clear data from mesh for when recalculating resolution
-        mesh3.vertices = vertices3;
-        mesh3.triangles = triangles3;
-        mesh3.RecalculateNormals();
-        
-        mesh4.Clear();//clear data from mesh for when recalculating resolution
-        mesh4.vertices = vertices4;
-        mesh4.triangles = triangles4;
-        mesh4.RecalculateNormals();
-        
+        mesh.RecalculateNormals();
     }
     
     public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)
