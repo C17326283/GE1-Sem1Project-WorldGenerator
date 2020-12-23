@@ -105,7 +105,7 @@ public class Planet : MonoBehaviour
 
     void GenerateColours()
     {
-        colourGenerator.UpdateTextureInShader(biomeObjs[0],biomeObjs[1]);
+        colourGenerator.UpdateTextureInShader(biomeObjs[0],biomeObjs[1],biomeObjs[2],biomeObjs[3]);
     }
     
     public void UpdateSettings(PlanetSettings settings)

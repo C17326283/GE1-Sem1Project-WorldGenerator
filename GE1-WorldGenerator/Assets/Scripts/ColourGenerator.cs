@@ -40,7 +40,7 @@ public class ColourGenerator
     }
 
     //Colour the texture based on the gradients
-    public void UpdateTextureInShader(GameObject biomeObj,GameObject biomeObj2)
+    public void UpdateTextureInShader(GameObject biomeObj,GameObject biomeObj2,GameObject biomeObj3,GameObject biomeObj4)
     {
         //Make a different colour for each pixel of texture
         Color[] colours = new Color[textureResolution];
@@ -55,11 +55,14 @@ public class ColourGenerator
                 textures[i].SetPixels(colours);
                 textures[i].Apply();
                 //Apply this new texture to the materials parameter for shader graph
-                settings.planetMaterials[i].SetTexture("_texture",textures[0]);
-                settings.planetMaterials[i].SetTexture("_texture2",textures[1]);
+                settings.planetMaterials[i].SetTexture("_texture",textures[0]);//normal
+                settings.planetMaterials[i].SetTexture("_texture2",textures[1]);//hot
+                settings.planetMaterials[i].SetTexture("_texture3",textures[2]);//cold
 //                Debug.Log("objpos");
                 settings.planetMaterials[i].SetVector("_objPos",biomeObj.transform.position);
                 settings.planetMaterials[i].SetVector("_objPos2",biomeObj2.transform.position);
+                settings.planetMaterials[i].SetVector("_objPos3",biomeObj3.transform.position);
+                settings.planetMaterials[i].SetVector("_objPos4",biomeObj4.transform.position);
             }
         }
     }

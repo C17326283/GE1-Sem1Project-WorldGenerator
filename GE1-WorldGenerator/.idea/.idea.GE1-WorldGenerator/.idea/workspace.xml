@@ -26,8 +26,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SphereSpawner.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,7 @@
       <workItem from="1608572838028" duration="26300000" />
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
-      <workItem from="1608737854841" duration="7443000" />
+      <workItem from="1608737854841" duration="9167000" />
     </task>
     <servers />
   </component>

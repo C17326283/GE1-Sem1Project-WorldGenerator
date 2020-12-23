@@ -80,6 +80,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texture3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_EF982C10: 0
     - _AlphaClip: 0
@@ -103,8 +107,9 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _objPos4: 0
     m_Colors:
-    - Vector2_6E81446B: {r: 72.92, g: 176.6, b: 0, a: 0}
+    - Vector2_6E81446B: {r: 85.07, g: 170.7, b: 0, a: 0}
     - Vector2_F8D84F5: {r: 0, g: 3.1, b: 0, a: 0}
     - Vector3_2C7BAD45: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
@@ -114,4 +119,6 @@ Material:
     - _elevationMinMax: {r: 78.00031, g: 85.79982, b: 0, a: 0}
     - _objPos: {r: 0, g: 76, b: 0, a: 0}
     - _objPos2: {r: 0, g: -83, b: 1, a: 0}
+    - _objPos3: {r: 51, g: 5, b: 55, a: 0}
+    - _objPos4: {r: -81, g: 5, b: 1, a: 0}
   m_BuildTextureStacks: []
