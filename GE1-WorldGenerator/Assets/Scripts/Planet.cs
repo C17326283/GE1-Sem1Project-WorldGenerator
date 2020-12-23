@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class Planet : MonoBehaviour
 {
     //resolution for the amount of square that makes up a face, max 256
-    [Range(2, 256)] 
+    [Range(20, 256)] 
     public int res = 100;
 
     
