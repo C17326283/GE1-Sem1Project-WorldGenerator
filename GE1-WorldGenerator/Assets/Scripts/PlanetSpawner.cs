@@ -88,9 +88,15 @@ public class PlanetSpawner : MonoBehaviour
             atmosphere.GetComponent<Collider>().enabled = false;
             atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planet.GetComponent<Planet>().elevationMinMax.Max/2));//make it outside the radius
             atmosphere.GetComponent<Renderer>().material = atmosphereMat;
+            atmosphere.layer = 8;//atmosphere layer for reverse lighting
             FlipNormals(atmosphere);
 
         }
+    }
+
+    public void GenerateCollider()
+    {
+        
     }
 
     //sets the settings using the gui details when generate is clicked

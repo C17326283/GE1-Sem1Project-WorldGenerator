@@ -45,10 +45,9 @@ public class RandomGenSpawner : MonoBehaviour
         core = planetObject.transform.position;
         multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
         
-        for (int i = 0; i < amountToSpawn; i++)
-        {
-            Spawn();
-        }
+        StartCoroutine(Spawn());
+        
+        
     }
 
     // Update is called once per frame
@@ -57,41 +56,51 @@ public class RandomGenSpawner : MonoBehaviour
         Debug.DrawRay(gameObject.transform.position, core - gameObject.transform.position, Color.magenta);
     }
 
-    private void Spawn()
+    IEnumerator Spawn()
     {
-        newObj = null;
-        
-        RaycastHit hit;//shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
+        for (int i = 0; i < amountToSpawn; i++)
         {
-            Debug.Log(hit.transform.name+gameObject.transform.position);
-            if (hit.transform.CompareTag(tagToSpawnOn))//Checks its allowed spawn there
-            {
-                newObj = multObjectPoolObj.GetObj();
-                if(newObj != null)
-                {
-                    newObj.SetActive(true);
+            yield return new WaitForSeconds(.1f);
+            newObj = null;
 
-                    newObj.transform.position = hit.point;//place object at hit
-                    newObj.transform.up = newObj.transform.position - core;//set rotation so orients properly
-                    newObj.transform.position = newObj.transform.position + newObj.transform.up * heightFromHitPoint;//repoisition to correct height from hit
-                    
-                    
-                    if (RandomiseScaleAndRotation)
+            RaycastHit hit; //shoot ray and if its ground then spawn at that location
+            if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
+            {
+                Debug.Log(hit.transform.name + hit.transform.position);
+                if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
+                {
+                    newObj = multObjectPoolObj.GetObj();
+                    if (newObj != null)
                     {
-                        newObj.transform.parent = gameObject.transform.parent;//make its own parent so that scaling works after reactivating
-                
-                        float scale = Random.Range(minScale, maxScale);
-                        newObj.transform.localScale = Vector3.one * scale;//.one for all round scale
-                        newObj.transform.Rotate(Random.Range(-randomXZTilt,randomXZTilt),Random.Range(0,360),Random.Range(-randomXZTilt,randomXZTilt));
+                        newObj.SetActive(true);
+
+                        newObj.transform.position = hit.point; //place object at hit
+                        newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
+                        newObj.transform.position =
+                            newObj.transform.position +
+                            newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
+
+
+                        if (RandomiseScaleAndRotation)
+                        {
+                            newObj.transform.parent =
+                                gameObject.transform
+                                    .parent; //make its own parent so that scaling works after reactivating
+
+                            float scale = Random.Range(minScale, maxScale);
+                            newObj.transform.localScale = Vector3.one * scale; //.one for all round scale
+                            newObj.transform.Rotate(Random.Range(-randomXZTilt, randomXZTilt), Random.Range(0, 360),
+                                Random.Range(-randomXZTilt, randomXZTilt));
+                        }
+
+                        newObj.transform.parent = parentObject.transform; //set parent to correct obj
                     }
-                    newObj.transform.parent = parentObject.transform;//set parent to correct obj
                 }
             }
-        }
-        else
-        {
-            Debug.Log("no hit");
+            else
+            {
+                Debug.Log("no hit");
+            }
         }
 
         Resposition();

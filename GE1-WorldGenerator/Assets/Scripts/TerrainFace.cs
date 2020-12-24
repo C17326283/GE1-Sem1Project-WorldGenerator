@@ -89,7 +89,7 @@ public class TerrainFace : MonoBehaviour
         mesh.triangles = triangles;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
-        mesh.Optimize();
+        //mesh.Optimize();
     }
     
     public Vector3 AddHeightToVertex(Vector3 pointOnUnitSphere)
