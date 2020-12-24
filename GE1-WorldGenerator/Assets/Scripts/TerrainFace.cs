@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+    //Makign the indivual faces
 public class TerrainFace : MonoBehaviour
 {
     //private ShapeGenerator shapeGenerator;
     private Mesh mesh;
-
     private int res;
 
+    //info about direction of face
     private Vector3 localUp;
     private Vector3 axisA;
     private Vector3 axisB;
     
+    //All the settings that are needed
     private PlanetSettings settings;
     private NoiseLayer[] noiseLayers;
     private TerrainMinMaxHeights elevationMinMax;
@@ -25,7 +27,6 @@ public class TerrainFace : MonoBehaviour
     //constructor for initalising the terrain face parameters
     public TerrainFace(Mesh mesh, int res, Vector3 localUp, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings, Boolean isLand)
     {
-        //this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.res = res;
         this.localUp = localUp;
@@ -52,13 +53,11 @@ public class TerrainFace : MonoBehaviour
         {
             for (int x = 0; x < res; x++)
             {
-                
                 int i = x + y * res;//get the point on the grid
                 Vector2 percent = new Vector2(x,y) / (res-1);//percentage of width for even spacing
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f)*2*axisA + (percent.y - .5f)*2*axisB;//get position of individual point
                 Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;//normalise it to get where it should be on sphere
-                
-                
+
                 //use the spherized point with noise to find where it should be
                 if(isLand)
                     vertices[i] = AddHeightToVertex(pointOnUnitSphere);
@@ -84,17 +83,14 @@ public class TerrainFace : MonoBehaviour
         }
         
         //get the mesh points from the made points
-        mesh.Clear();//clear data from mesh
+        mesh.Clear();//clear data from mesh so no errors
         mesh.vertices = vertices;
         mesh.triangles = triangles;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
-        
-        
-
-        //mesh.Optimize();
     }
     
+    //Addign radius and noise to point to make it the surface of the planet
     public Vector3 AddHeightToVertex(Vector3 pointOnUnitSphere)
     {
         float firstLayerValue = 0;
