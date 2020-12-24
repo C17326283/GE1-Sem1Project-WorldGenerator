@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +14,11 @@ public class PlanetSettings : ScriptableObject
     [HideInInspector]
     public float planetRadius =100;//always public, could change in future but scaling works for other planets
     public NoiseLayer[] noiseLayers;
+    public Boolean havePoles = true;
 
     //public GameObject biomeObj;
 
 
-    
-    
+
+
 }

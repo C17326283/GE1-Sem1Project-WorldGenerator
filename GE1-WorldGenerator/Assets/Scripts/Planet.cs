@@ -81,6 +81,21 @@ public class Planet : MonoBehaviour
                 {
                     biomeObjs[j] = new GameObject("BiomePlacementObject");
                     biomeObjs[j].transform.parent = this.transform;
+                    if (planetSettings.havePoles && j<2)
+                    {
+                        if (j == 0)
+                        {
+                            biomeObjs[j].transform.position = transform.up * planetSettings.planetRadius;
+                        }
+                        else if(j==1)
+                        {
+                            biomeObjs[j].transform.position = -transform.up * planetSettings.planetRadius;
+                        }
+                    }
+                    else
+                    {
+                        biomeObjs[j].transform.position = Random.onUnitSphere * planetSettings.planetRadius;
+                    }
                 }
             }
             
