@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+//The alctual core object
 public class Planet : MonoBehaviour
 {
     //resolution for the amount of square that makes up a face, max 256

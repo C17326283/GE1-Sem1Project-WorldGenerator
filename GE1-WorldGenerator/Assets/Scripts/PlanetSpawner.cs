@@ -8,8 +8,10 @@ using UnityEngine.UI;
 using UnityTemplateProjects;
 using Random = UnityEngine.Random;
 
+// This is for spawning the planet object and managing the generation as a whole
 public class PlanetSpawner : MonoBehaviour
 {
+    //All the references
     public GameObject player;
     [HideInInspector] 
     public GameObject planet;
@@ -24,6 +26,7 @@ public class PlanetSpawner : MonoBehaviour
     private GameObject spawnerSpawners;
     private Planet planetScript;
 
+    //The references to the gui objects that updates the settings
     public GameObject resolutionOption;
     private Slider resSlider;
     private TextMeshProUGUI resTextMeshPro;
@@ -44,6 +47,7 @@ public class PlanetSpawner : MonoBehaviour
     private Slider noiseLayersSlider;
     private TextMeshProUGUI noiseLayersTextMeshPro;
 
+    //Make the objects and get the references
     public void Start()
     {
         planetSettings = Instantiate(defaultPlanetSettings);
@@ -62,7 +66,7 @@ public class PlanetSpawner : MonoBehaviour
         noiseLayersTextMeshPro = noiseLayersOption.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Start is called before the first frame update
+    // Make the planet object, adding compontents adn materials
     public void Generate()
     {
         if (planet == null)
@@ -82,6 +86,7 @@ public class PlanetSpawner : MonoBehaviour
         planetScript.GeneratePlanet();
     }
 
+    //Adding the spawner objects which fill the terrain with trees etc
     public void AddExtras()
     {
         if (spawnedExtras == null)
@@ -97,12 +102,8 @@ public class PlanetSpawner : MonoBehaviour
         }
     }
 
-    public void GenerateCollider()
-    {
-        
-    }
-
-    //sets the settings using the gui details when generate is clicked
+    
+    //Chnage the settings when something is updated on screen
     public void updateSettingsFromGUI()
     {
         planetScript.res = (int)resSlider.value;
@@ -148,12 +149,14 @@ public class PlanetSpawner : MonoBehaviour
         //resTextMeshPro.text = "Resolution: "+defaultPlanetSettings.noiseLayers[0].strength;
     }
 
+    //Make a different center point for the noise, this makes different terrain with all the same settings
     public void MoveLand()
     {
         planetSettings.noiseLayers[0].centre = new Vector3(Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f));
         Generate();
     }
 
+    //Set the values back to what the were at the beginning
     public void Reset()
     {
         planetScript.res = 100;
@@ -176,6 +179,7 @@ public class PlanetSpawner : MonoBehaviour
         Generate();
     }
 
+    //Start playing by hiding the guis and giving access to the movement of the camera
     public void Explore()
     {
         Generate();
@@ -187,6 +191,7 @@ public class PlanetSpawner : MonoBehaviour
 
     }
 
+    //Move the biome points
     public void RandomiseBiomes()
     {
         
@@ -195,6 +200,7 @@ public class PlanetSpawner : MonoBehaviour
         Generate();
     }
 
+    //Flip the normals of the atmosphere object to allow an inward material
     public void FlipNormals(GameObject atmoObj)
     {
         //get normals from mesh
@@ -218,9 +224,7 @@ public class PlanetSpawner : MonoBehaviour
                 tris[j + 1] = temp;
             }
             mesh.SetTriangles(tris,i);
-
         }
-        
-        
+
     }
 }
