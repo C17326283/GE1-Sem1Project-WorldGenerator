@@ -181,7 +181,7 @@ public class PlanetSpawner : MonoBehaviour
         FakeGravity fg = player.AddComponent<FakeGravity>();
         fg.gravityObject = planet;
         player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<CharacterController>().enabled = true;
+        //player.GetComponent<CharacterController>().enabled = true;
 
     }
 
