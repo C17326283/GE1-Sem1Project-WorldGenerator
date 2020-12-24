@@ -15,14 +15,6 @@ public class PlanetSettings : ScriptableObject
 
     [HideInInspector]
     public float planetRadius =100;//always public, could change in future but scaling works for other planets
-    public NoiseLayer[] noiseLayers;
+    public NoiseLayer[] noiseLayers;//For all the height variation of the verticies
     public Boolean havePoles = true;
-
-    //public GameObject biomeObj;
-    
-    
-
-
-
-
 }

@@ -10,18 +10,14 @@ public class Planet : MonoBehaviour
     //resolution for the amount of square that makes up a face, max 256
     [Range(20, 256)] 
     public int res = 100;
-
     
-    //settings for editing shape and colour
-    //public ShapeSettings shapeSettings;
+    //settings to pull from for generation
     public PlanetSettings planetSettings;
-
-    [HideInInspector] public bool colourSettingsFoldout;
-
-    //Info about the generated shape
+    
+    //Material genration based on input gradients//todo make this allow random gradients
     private ColourGenerator colourGenerator = new ColourGenerator();
     
-    //Info about faces
+    //The actual face objects for the terrain and the water
     [SerializeField, HideInInspector]
     private MeshFilter[] meshFilters;
     [SerializeField, HideInInspector]
@@ -32,17 +28,9 @@ public class Planet : MonoBehaviour
     
     public TerrainMinMaxHeights elevationMinMax;//for getting the highest and lowest points
     public GameObject[] biomeObjs;//4
+    
 
-
-
-
-    //Whenever anything is changed in editor
-    private void OnValidate()
-    {
-        //GeneratePlanet();
-    }
-
-    //If first time making shape then generate all the faces
+    //Make all the faces and filters if they arent already or update them if they are
     void Create()
     {
         colourGenerator.UpdateSettings(planetSettings);
@@ -60,9 +48,6 @@ public class Planet : MonoBehaviour
         //get all the directions to be used as the sides of the cube
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back};
     
-        //todo add water object
-        //todo add atmoshereobject
-        //todo add the spawners
         //create objects and components for all the faces
         for (int i = 0; i < 6; i++)
         {
@@ -70,6 +55,7 @@ public class Planet : MonoBehaviour
             //todo try to split face further
             if (meshFilters[i] == null)
             {
+                //Make square faces and set details that will be used
                 GameObject meshObj = new GameObject("PlanetFaceMesh");
                 GameObject waterObj = new GameObject("WaterMesh");
                 meshObj.transform.parent = transform;
@@ -91,22 +77,20 @@ public class Planet : MonoBehaviour
                 collider.sharedMesh = meshFilters[i].sharedMesh;
                 MeshCollider waterCollider = waterObj.AddComponent<MeshCollider>();
                 waterCollider.sharedMesh = waterMeshFilters[i].sharedMesh;
-                
-                
-                
             }
             
-
+            //Update the biome objects and shader
             SetBiomes();
             
-            //int randBiome = Random.Range(0, planetSettings.biomeGradients.Length);//todo make this based on amount of biomes
-
+            //update materials
             meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterial;
             waterMeshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.waterMaterial;
+            
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,true);
             waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,false);
 
+            //Reset the mesh colliders//Didnt work without this, raycasts were going straight through
             meshFilters[i].GetComponent<MeshCollider>().convex = true;
             meshFilters[i].GetComponent<MeshCollider>().convex = false;
             waterMeshFilters[i].GetComponent<MeshCollider>().convex = true;
@@ -114,7 +98,7 @@ public class Planet : MonoBehaviour
         }
     }
 
-    //Generate whole planet
+    //Call the functions needed for planet
     public void GeneratePlanet()
     {
         Create();
@@ -126,7 +110,6 @@ public class Planet : MonoBehaviour
     //Make mesh from all terrain faces
     void GenerateMesh()
     {
-        Debug.Log("gen");
         foreach (TerrainFace face in terrainFaces)
         {
             face.ConstructMesh();
@@ -138,16 +121,19 @@ public class Planet : MonoBehaviour
         colourGenerator.UpdateHeightInShader(elevationMinMax);
     }
 
+    //Update textures
     void GenerateColours()
     {
         colourGenerator.UpdateTextureInShader(biomeObjs[0],biomeObjs[1],biomeObjs[2],biomeObjs[3]);
     }
     
+    //Update the evevation info so shader can do proper height variation
     public void UpdateSettings(PlanetSettings settings)
     {
         elevationMinMax = new TerrainMinMaxHeights();
     }
 
+    //Make the objects for biome distance
     public void SetBiomes()
     {
         
@@ -163,7 +149,7 @@ public class Planet : MonoBehaviour
 
         for (int i = 0; i < biomeObjs.Length; i++)
         {
-//            Debug.Log("biome");
+            //Can have poles to begin with to simulate earth
             if (planetSettings.havePoles && i<2)
             {
                 if (i == 0)
