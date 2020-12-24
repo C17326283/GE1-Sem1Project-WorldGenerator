@@ -86,6 +86,7 @@ public class PlanetSpawner : MonoBehaviour
             atmosphere.GetComponent<Collider>().enabled = false;
             atmosphere.transform.localScale = Vector3.one * ((planetSettings.planetRadius*2) + planet.GetComponent<Planet>().elevationMinMax.Max);//make it outside the radius
             atmosphere.GetComponent<Renderer>().material = atmosphereMat;
+            FlipNormals(atmosphere);
 
         }
     }
@@ -165,6 +166,42 @@ public class PlanetSpawner : MonoBehaviour
 
     public void Explore()
     {
+        
+    }
+
+    public void RandomiseBiomes()
+    {
+        
+    }
+    
+    public void 
+
+    public void FlipNormals(GameObject atmoObj)
+    {
+        //get normals from mesh
+        Mesh mesh = atmoObj.GetComponent<MeshFilter>().mesh;
+        Vector3[] normals = mesh.normals;
+        //flip mesh
+        for (int i = 0; i < normals.Length; i++)
+        {
+            normals[i] = -1 * normals[i];
+        }
+
+        mesh.normals = normals;
+        //reverse clockwise triangles
+        for (int i = 0; i < mesh.subMeshCount; i++)
+        {
+            int[] tris = mesh.GetTriangles(i);
+            for (int j = 0; j < tris.Length; j+=3)
+            {
+                int temp = tris[j];
+                tris[j] = tris[j + 1];
+                tris[j + 1] = temp;
+            }
+            mesh.SetTriangles(tris,i);
+
+        }
+        
         
     }
 }
