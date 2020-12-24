@@ -72,9 +72,9 @@ MonoBehaviour:
   multObjectPoolObj: {fileID: 0}
   parentObject: {fileID: 0}
   planetObject: {fileID: 0}
-  amountToSpawn: 200
+  amountToSpawn: 400
   spawnerDistanceFromCore: 5000
-  heightFromHitPoint: 100
+  heightFromHitPoint: 200
   tagToSpawnOn: Ground
   isRotatingObject: 1
   poolIndexNumber: 1

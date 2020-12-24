@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 
 public class PlanetSpawner : MonoBehaviour
 {
-    [HideInInspector]
+    public GameObject player;
+    [HideInInspector] 
     public GameObject planet;
     public PlanetSettings planetSettings;
     public PlanetSettings defaultPlanetSettings;
@@ -176,6 +177,9 @@ public class PlanetSpawner : MonoBehaviour
     public void Explore()
     {
         Generate();
+        player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 100);
+        
+        
     }
 
     public void RandomiseBiomes()
