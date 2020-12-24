@@ -40,7 +40,6 @@
           <e p="GameManager.cs" t="Include" />
           <e p="GuiGenerator.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
-          <e p="NewBehaviourScript.cs" t="Include" />
           <e p="Noise.cs" t="Include" />
           <e p="NoiseLayer.cs" t="Include" />
           <e p="ObjectPool.cs" t="Include" />

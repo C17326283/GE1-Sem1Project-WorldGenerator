@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
     }
 
     //If first time making shape then generate all the faces
-    void Initialize()
+    void Create()
     {
         colourGenerator.UpdateSettings(planetSettings);
         
@@ -70,25 +70,34 @@ public class Planet : MonoBehaviour
                 meshObj.transform.tag = "Ground";//for letting the spawners hit it
             
                 meshObj.AddComponent<MeshRenderer>();
-                meshObj.AddComponent<MeshCollider>();
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
-                
-                
+            }
+
+            if (biomeObjs == null)
+            {
+                biomeObjs =  new GameObject[4];
+                for (int j = 0; j < 4; j++)
+                {
+                    biomeObjs[j] = new GameObject("BiomePlacementObject");
+                    biomeObjs[j].transform.parent = this.transform;
+                }
             }
             
             //int randBiome = Random.Range(0, planetSettings.biomeGradients.Length);//todo make this based on amount of biomes
 
-            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials[0];
+            meshFilters[i].GetComponent<MeshRenderer>().sharedMaterial = planetSettings.planetMaterials;
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings);
+            
+            meshFilters[i].gameObject.AddComponent<MeshCollider>();//add mesh collider after changing terrain
         }
     }
 
     //Generate whole planet
     public void GeneratePlanet()
     {
-        Initialize();
+        Create();
         GenerateMesh();
         GenerateColours();//turn this back on, its just annoying for editing
     }

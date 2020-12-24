@@ -79,7 +79,7 @@ public class TerrainFace : MonoBehaviour
         mesh.Clear();//clear data from mesh
         mesh.vertices = vertices;
         mesh.triangles = triangles;
-        
+        mesh.RecalculateBounds();
         mesh.RecalculateNormals();
     }
     

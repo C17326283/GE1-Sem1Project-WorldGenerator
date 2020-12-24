@@ -31,12 +31,8 @@ public class ColourGenerator
     //update all the material parametes with the elevation heights so terrain levels are always correct
     public void UpdateHeightInShader(TerrainMinMaxHeights elevationMinMax)
     {
-//        Debug.Log(settings.planetMaterials.Length);
-        for (int i = 0; i < settings.planetMaterials.Length; i++)
-        {
-            //set the min point as x and max as y
-            settings.planetMaterials[i].SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min,elevationMinMax.Max));
-        }
+        settings.planetMaterials.SetVector("_elevationMinMax", new Vector4(elevationMinMax.Min,elevationMinMax.Max));
+
     }
 
     //Colour the texture based on the gradients
@@ -55,14 +51,14 @@ public class ColourGenerator
                 textures[i].SetPixels(colours);
                 textures[i].Apply();
                 //Apply this new texture to the materials parameter for shader graph
-                settings.planetMaterials[i].SetTexture("_texture",textures[0]);//normal
-                settings.planetMaterials[i].SetTexture("_texture2",textures[1]);//hot
-                settings.planetMaterials[i].SetTexture("_texture3",textures[2]);//cold
+                settings.planetMaterials.SetTexture("_texture",textures[0]);//normal
+                settings.planetMaterials.SetTexture("_texture2",textures[1]);//hot
+                settings.planetMaterials.SetTexture("_texture3",textures[2]);//cold
 //                Debug.Log("objpos");
-                settings.planetMaterials[i].SetVector("_objPos",biomeObj.transform.position);
-                settings.planetMaterials[i].SetVector("_objPos2",biomeObj2.transform.position);
-                settings.planetMaterials[i].SetVector("_objPos3",biomeObj3.transform.position);
-                settings.planetMaterials[i].SetVector("_objPos4",biomeObj4.transform.position);
+                settings.planetMaterials.SetVector("_objPos",biomeObj.transform.position);
+                settings.planetMaterials.SetVector("_objPos2",biomeObj2.transform.position);
+                settings.planetMaterials.SetVector("_objPos3",biomeObj3.transform.position);
+                settings.planetMaterials.SetVector("_objPos4",biomeObj4.transform.position);
             }
         }
     }
