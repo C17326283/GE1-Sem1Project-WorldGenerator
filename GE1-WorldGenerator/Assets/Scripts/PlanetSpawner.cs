@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityTemplateProjects;
 using Random = UnityEngine.Random;
 
 public class PlanetSpawner : MonoBehaviour
@@ -177,11 +179,10 @@ public class PlanetSpawner : MonoBehaviour
     public void Explore()
     {
         Generate();
-        player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
-        FakeGravity fg = player.AddComponent<FakeGravity>();
-        fg.gravityObject = planet;
-        player.GetComponent<PlayerMovement>().enabled = true;
-        //player.GetComponent<CharacterController>().enabled = true;
+        //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
+        player.GetComponent<SimpleCameraController>().enabled = true;
+        //FakeGravity fg = player.AddComponent<FakeGravity>();
+        //fg.gravityObject = planet;
 
     }
 

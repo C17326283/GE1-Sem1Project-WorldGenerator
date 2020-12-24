@@ -25,7 +25,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,9 +74,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/FakeGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
       </list>
     </option>
   </component>
@@ -135,7 +134,7 @@
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
       <workItem from="1608737854841" duration="27043000" />
-      <workItem from="1608808507700" duration="34856000" />
+      <workItem from="1608808507700" duration="35511000" />
     </task>
     <servers />
   </component>
