@@ -14,8 +14,8 @@ public class PlanetSpawner : MonoBehaviour
     public PlanetSettings defaultPlanetSettings;
     public Material mat;
     public Material waterMat;
+    public Material atmosphereMat;
     public GameObject extras;
-    public GameObject spawners;
 
     private GameObject spawnedExtras;
     private GameObject spawnerSpawners;
@@ -79,9 +79,15 @@ public class PlanetSpawner : MonoBehaviour
 
     public void AddExtras()
     {
-        if(spawnedExtras == null)
+        if (spawnedExtras == null)
+        {
             spawnedExtras = Instantiate(extras, planet.transform);
-            spawnerSpawners = Instantiate(spawners, planet.transform);
+            GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            atmosphere.GetComponent<Collider>().enabled = false;
+            atmosphere.transform.localScale = Vector3.one * ((planetSettings.planetRadius*2) + planet.GetComponent<Planet>().elevationMinMax.Max);//make it outside the radius
+            atmosphere.GetComponent<Renderer>().material = atmosphereMat;
+
+        }
     }
 
     //sets the settings using the gui details when generate is clicked
@@ -155,5 +161,10 @@ public class PlanetSpawner : MonoBehaviour
         noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
         planetSettings.noiseLayers[0].centre = defaultPlanetSettings.noiseLayers[0].centre;
         Generate();
+    }
+
+    public void Explore()
+    {
+        
     }
 }
