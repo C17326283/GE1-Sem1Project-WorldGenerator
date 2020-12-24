@@ -86,7 +86,15 @@ public class Planet : MonoBehaviour
                 waterMeshFilters[i].sharedMesh = new Mesh();
                 meshFilters[i].sharedMesh.name = "sharedMesh";
                 waterMeshFilters[i].sharedMesh.name = "sharedWaterMesh";
+                MeshCollider collider = meshObj.AddComponent<MeshCollider>();
+                collider.sharedMesh = meshFilters[i].sharedMesh;
+                MeshCollider waterCollider = waterObj.AddComponent<MeshCollider>();
+                waterCollider.sharedMesh = waterMeshFilters[i].sharedMesh;
+                
+                
+                
             }
+            
 
             SetBiomes();
             
@@ -97,15 +105,11 @@ public class Planet : MonoBehaviour
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,true);
             waterFaces[i] = new TerrainFace(waterMeshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings,false);
-            
-            DestroyImmediate(meshFilters[i].transform.gameObject.GetComponent<MeshCollider>());
-            var collider = meshFilters[i].transform.gameObject.AddComponent<MeshCollider>();
-            collider.sharedMesh = meshFilters[i].sharedMesh;
-            
-            DestroyImmediate(waterMeshFilters[i].transform.gameObject.GetComponent<MeshCollider>());
-            var col2 = waterMeshFilters[i].transform.gameObject.AddComponent<MeshCollider>();
-            collider.sharedMesh = waterMeshFilters[i].sharedMesh;
-            //meshFilters[i].gameObject.AddComponent<MeshCollider>();//add mesh collider after changing terrain
+
+            meshFilters[i].GetComponent<MeshCollider>().convex = true;
+            meshFilters[i].GetComponent<MeshCollider>().convex = false;
+            waterMeshFilters[i].GetComponent<MeshCollider>().convex = true;
+            waterMeshFilters[i].GetComponent<MeshCollider>().convex = false;
         }
     }
 

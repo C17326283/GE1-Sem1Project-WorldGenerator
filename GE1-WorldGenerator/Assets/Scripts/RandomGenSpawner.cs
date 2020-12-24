@@ -66,7 +66,7 @@ public class RandomGenSpawner : MonoBehaviour
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
             if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
             {
-                Debug.Log(hit.transform.name + hit.transform.position);
+         //       Debug.Log(hit.transform.name + hit.transform.position);
                 if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
                     newObj = multObjectPoolObj.GetObj();
@@ -99,7 +99,7 @@ public class RandomGenSpawner : MonoBehaviour
             }
             else
             {
-                Debug.Log("no hit");
+//                Debug.Log("no hit");
             }
         }
 

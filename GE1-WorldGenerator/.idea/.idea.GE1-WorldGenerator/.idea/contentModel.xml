@@ -35,6 +35,7 @@
             <e p="CloudsShader.shader" t="Include" />
           </e>
         </e>
+        <e p="RayCastTest.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="ColourGenerator.cs" t="Include" />
           <e p="GuiGenerator.cs" t="Include" />

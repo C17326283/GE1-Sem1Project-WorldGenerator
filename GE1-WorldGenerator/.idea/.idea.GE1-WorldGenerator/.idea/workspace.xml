@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/ApiUpdaterCheck.txt" afterDir="false" />
@@ -39,6 +38,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/RayCastTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LookAtLerp.cs" root0="FORCE_HIGHLIGHTING" />
@@ -68,11 +68,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/RayCastTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
       </list>
     </option>
   </component>
@@ -130,7 +131,7 @@
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
       <workItem from="1608737854841" duration="27043000" />
-      <workItem from="1608808507700" duration="22873000" />
+      <workItem from="1608808507700" duration="25509000" />
     </task>
     <servers />
   </component>

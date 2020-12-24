@@ -89,6 +89,9 @@ public class TerrainFace : MonoBehaviour
         mesh.triangles = triangles;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
+        
+        
+
         //mesh.Optimize();
     }
     
