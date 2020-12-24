@@ -179,6 +179,7 @@ public class PlanetSpawner : MonoBehaviour
     public void Explore()
     {
         Generate();
+        this.GetComponent<RotateEnvironment>().enabled = false;
         //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
         player.GetComponent<SimpleCameraController>().enabled = true;
         //FakeGravity fg = player.AddComponent<FakeGravity>();
