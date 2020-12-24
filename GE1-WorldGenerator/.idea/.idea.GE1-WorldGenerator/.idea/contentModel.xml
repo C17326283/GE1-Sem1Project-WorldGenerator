@@ -37,7 +37,6 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ColourGenerator.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
           <e p="GuiGenerator.cs" t="Include" />
           <e p="LookAtLerp.cs" t="Include" />
           <e p="Noise.cs" t="Include" />
@@ -46,6 +45,7 @@
           <e p="Planet.cs" t="Include" />
           <e p="PlanetEditor.cs" t="Include" />
           <e p="PlanetSettings.cs" t="Include" />
+          <e p="PlanetSpawner.cs" t="Include" />
           <e p="RandomGenSpawner.cs" t="Include" />
           <e p="RotateEnvironment.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />

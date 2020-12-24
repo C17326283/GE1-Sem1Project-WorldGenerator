@@ -7,7 +7,9 @@ public class ObjectPool : MonoBehaviour
 
     //prefab that the pool will use
     //public GameObject poolPrefab;
+    public int poolIndex;
     public List<GameObject> poolPrefabList;
+    public List<List<GameObject>> lists;
 
     //initial number of element
     public int initialNum = 10;
@@ -79,13 +81,6 @@ public class ObjectPool : MonoBehaviour
     // retrieve an object from the pool
     public GameObject GetObj()
     {
-        //return null;
-        // if (poolIsActive == false)
-        // {
-        //     return null;
-        // }
-        
-        
         //Debug.Log("gameobject: "+this.gameObject.name+ ", getNumOfActiveObjects(): "+getNumOfActiveObjects()+", maxAmountActive: "+maxAmountActive);
         //Check doesnt excede maximum spawn capacity
         if (getNumOfActiveObjects() < maxAmountActive)

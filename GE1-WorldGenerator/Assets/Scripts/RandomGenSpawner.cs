@@ -12,11 +12,14 @@ public class RandomGenSpawner : MonoBehaviour
     public GameObject planetObject;
     private Vector3 core;//for raycasting spawn points
     
-    public int amountToSpawn = 100;//also limited by pool max
+    public int amountToSpawn = 10000;//also limited by pool max
     public int spawnerDistanceFromCore = 5000;
     public float heightFromHitPoint = 0;
     public String tagToSpawnOn = "Ground";
+    public bool isRotatingObject;//for clouds
+    public int poolIndexNumber = 0;
 
+    
     [Header("Only randomises if condition is true")]
     public bool RandomiseScaleAndRotation = false;
     public float minScale = 1f;
@@ -26,8 +29,19 @@ public class RandomGenSpawner : MonoBehaviour
     private GameObject newObj;//declare here so can edit in reposition
 
     // Start is called before the first frame update
+    
     void Awake()
     {
+        multObjectPoolObj = GetAssociatedPool();
+        if (planetObject == null)
+        {
+            planetObject = this.transform.root.gameObject; //get the base object which will be the planet
+            parentObject = new GameObject("Holder");
+            if (isRotatingObject)
+                parentObject.AddComponent<RotateEnvironment>();//for making the clouds move
+
+        }
+
         core = planetObject.transform.position;
         multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
         
@@ -83,6 +97,18 @@ public class RandomGenSpawner : MonoBehaviour
         Resposition();
     }
 
+
+    public ObjectPool GetAssociatedPool()
+    {
+        //See if any of the pools match and return that else return null
+        foreach (var Pool in transform.root.GetComponents<ObjectPool>())
+        {
+            print("Pool.poolIndex"+Pool.poolIndex+"poolIndexNumber"+poolIndexNumber);
+            if(poolIndexNumber == Pool.poolIndex)//if have matching index numbers. This is so clouds can have cloud settings etc.
+                return Pool;
+        }
+        return null;
+    }
     public void Resposition()
     {
         gameObject.transform.position = core;
