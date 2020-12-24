@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlanetSpawner : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class PlanetSpawner : MonoBehaviour
     public Material mat;
     public Material waterMat;
     public GameObject extras;
+    public GameObject spawners;
 
     private GameObject spawnedExtras;
+    private GameObject spawnerSpawners;
     private Planet planetScript;
 
     public GameObject resolutionOption;
@@ -78,6 +81,7 @@ public class PlanetSpawner : MonoBehaviour
     {
         if(spawnedExtras == null)
             spawnedExtras = Instantiate(extras, planet.transform);
+            spawnerSpawners = Instantiate(spawners, planet.transform);
     }
 
     //sets the settings using the gui details when generate is clicked
@@ -109,7 +113,7 @@ public class PlanetSpawner : MonoBehaviour
         baseRoughnessSlider.value = defaultPlanetSettings.noiseLayers[0].baseRoughness;
         
         planetSettings.noiseLayers[0].NumOfNoiseLayers = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
-        baseRoughnessSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
+        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
         UpdateGUIDetails();
     }
 
@@ -118,11 +122,38 @@ public class PlanetSpawner : MonoBehaviour
     {
         
         resTextMeshPro.text = "Resolution: "+resSlider.value;
-        strengthTextMeshPro.text = "strength: "+strengthSlider.value;
-        roughnessTextMeshPro.text = "roughness: "+roughnessSlider.value;
-        persistanceTextMeshPro.text = "persistance: "+persistanceSlider.value;
-        baseRoughnessTextMeshPro.text = "baseRoughness: "+baseRoughnessSlider.value;
-        noiseLayersTextMeshPro.text = "noiseLayers: "+noiseLayersSlider.value;
+        strengthTextMeshPro.text = "Strength: "+strengthSlider.value;
+        roughnessTextMeshPro.text = "Roughness: "+roughnessSlider.value;
+        persistanceTextMeshPro.text = "Amplification: "+persistanceSlider.value;
+        baseRoughnessTextMeshPro.text = "Continent Spread: "+baseRoughnessSlider.value;
+        noiseLayersTextMeshPro.text = "Cycles: "+noiseLayersSlider.value;
         //resTextMeshPro.text = "Resolution: "+defaultPlanetSettings.noiseLayers[0].strength;
+    }
+
+    public void MoveLand()
+    {
+        planetSettings.noiseLayers[0].centre = new Vector3(Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f));
+        Generate();
+    }
+
+    public void Reset()
+    {
+        planetScript.res = 100;
+        resSlider.value = planetScript.res;
+        
+        planetSettings.noiseLayers[0].strength = defaultPlanetSettings.noiseLayers[0].strength;
+        strengthSlider.value = defaultPlanetSettings.noiseLayers[0].strength;
+
+        planetSettings.noiseLayers[0].roughness = defaultPlanetSettings.noiseLayers[0].roughness;
+        roughnessSlider.value = defaultPlanetSettings.noiseLayers[0].roughness;
+        planetSettings.noiseLayers[0].persistance = defaultPlanetSettings.noiseLayers[0].persistance;
+        persistanceSlider.value = defaultPlanetSettings.noiseLayers[0].persistance;
+        planetSettings.noiseLayers[0].baseRoughness = defaultPlanetSettings.noiseLayers[0].baseRoughness;
+        baseRoughnessSlider.value = defaultPlanetSettings.noiseLayers[0].baseRoughness;
+        
+        planetSettings.noiseLayers[0].NumOfNoiseLayers = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
+        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
+        planetSettings.noiseLayers[0].centre = defaultPlanetSettings.noiseLayers[0].centre;
+        Generate();
     }
 }

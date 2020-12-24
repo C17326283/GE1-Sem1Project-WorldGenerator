@@ -11,7 +11,7 @@ public class NoiseLayer
     //Settings
     public float strength = 0.1f;
     public float roughness = 1;
-    public int NumOfNoiseLayers = 1;
+    public int NumOfNoiseLayers = 5;
     public float persistance = .5f; //amplitude halves each layer
     public float baseRoughness = 1;
     public float minValue;
