@@ -175,7 +175,7 @@ public class PlanetSpawner : MonoBehaviour
 
     public void Explore()
     {
-        
+        Generate();
     }
 
     public void RandomiseBiomes()

@@ -32,6 +32,7 @@ public class RandomGenSpawner : MonoBehaviour
     
     void Awake()
     {
+        Resposition();
         multObjectPoolObj = GetAssociatedPool();
         if (planetObject == null)
         {
@@ -58,15 +59,15 @@ public class RandomGenSpawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
+        yield return new WaitForSeconds(1f);//to make sure the mesh was spawned correctly
         for (int i = 0; i < amountToSpawn; i++)
         {
-            yield return new WaitForSeconds(.1f);
             newObj = null;
 
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
             if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
             {
-         //       Debug.Log(hit.transform.name + hit.transform.position);
+                Debug.Log("hit"+hit.transform.name + hit.transform.position);
                 if (hit.transform.CompareTag(tagToSpawnOn)) //Checks its allowed spawn there
                 {
                     newObj = multObjectPoolObj.GetObj();
@@ -99,11 +100,12 @@ public class RandomGenSpawner : MonoBehaviour
             }
             else
             {
-//                Debug.Log("no hit");
+                Debug.Log("no hit");
             }
+            Resposition();
         }
 
-        Resposition();
+        
     }
 
 
