@@ -47,6 +47,7 @@
           <e p="PlanetEditor.cs" t="Include" />
           <e p="PlanetSettings.cs" t="Include" />
           <e p="PlanetSpawner.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
           <e p="RandomGenSpawner.cs" t="Include" />
           <e p="RotateEnvironment.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
