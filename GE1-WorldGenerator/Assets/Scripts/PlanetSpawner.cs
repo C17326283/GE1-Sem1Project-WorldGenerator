@@ -71,6 +71,7 @@ public class PlanetSpawner : MonoBehaviour
             planetScript.planetSettings.planetMaterial = mat;
             planetScript.planetSettings.waterMaterial = waterMat;
             setDefaultSettings();
+            planetScript.planetSettings.planetRadius *= 10;//make 10 times bigger
         }
         
 
