@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject planet;
-    public float height= 5;
     
     CharacterController characterController;
 
@@ -24,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.parent = planet.transform;
         characterController = GetComponent<CharacterController>();
     }
 

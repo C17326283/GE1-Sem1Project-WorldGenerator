@@ -177,9 +177,12 @@ public class PlanetSpawner : MonoBehaviour
     public void Explore()
     {
         Generate();
-        player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 100);
-        
-        
+        player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
+        FakeGravity fg = player.AddComponent<FakeGravity>();
+        fg.gravityObject = planet;
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<CharacterController>().enabled = true;
+
     }
 
     public void RandomiseBiomes()
@@ -188,11 +191,6 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.havePoles = false;
         planet.GetComponent<Planet>().SetBiomes();
         Generate();
-    }
-
-    public void LiveGeneration()
-    {
-        
     }
 
     public void FlipNormals(GameObject atmoObj)

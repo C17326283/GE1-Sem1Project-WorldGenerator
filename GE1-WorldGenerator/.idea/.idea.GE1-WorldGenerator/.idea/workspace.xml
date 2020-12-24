@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,9 +71,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/FakeGravity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
       </list>
     </option>
   </component>
@@ -132,7 +131,7 @@
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
       <workItem from="1608737854841" duration="27043000" />
-      <workItem from="1608808507700" duration="30345000" />
+      <workItem from="1608808507700" duration="30800000" />
     </task>
     <servers />
   </component>
