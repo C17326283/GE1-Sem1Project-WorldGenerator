@@ -124,6 +124,7 @@ public class Planet : MonoBehaviour
     //Make mesh from all terrain faces
     void GenerateMesh()
     {
+        Debug.Log("gen");
         foreach (TerrainFace face in terrainFaces)
         {
             face.ConstructMesh();
