@@ -161,6 +161,7 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.noiseLayers[0].NumOfNoiseLayers = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
         noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
         planetSettings.noiseLayers[0].centre = defaultPlanetSettings.noiseLayers[0].centre;
+        planetSettings.havePoles = true;
         Generate();
     }
 
@@ -172,9 +173,15 @@ public class PlanetSpawner : MonoBehaviour
     public void RandomiseBiomes()
     {
         
+        planetSettings.havePoles = false;
+        planet.GetComponent<Planet>().SetBiomes();
+        Generate();
     }
-    
-    public void 
+
+    public void LiveGeneration()
+    {
+        
+    }
 
     public void FlipNormals(GameObject atmoObj)
     {

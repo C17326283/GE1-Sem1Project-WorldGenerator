@@ -142,8 +142,9 @@ public class Planet : MonoBehaviour
         elevationMinMax = new TerrainMinMaxHeights();
     }
 
-    void SetBiomes()
+    public void SetBiomes()
     {
+        
         if (biomeObjs == null)
         {
             biomeObjs =  new GameObject[4];
@@ -151,22 +152,28 @@ public class Planet : MonoBehaviour
             {
                 biomeObjs[j] = new GameObject("BiomePlacementObject");
                 biomeObjs[j].transform.parent = this.transform;
-                if (planetSettings.havePoles && j<2)
-                {
-                    if (j == 0)
-                    {
-                        biomeObjs[j].transform.position = transform.up * planetSettings.planetRadius;
-                    }
-                    else if(j==1)
-                    {
-                        biomeObjs[j].transform.position = -transform.up * planetSettings.planetRadius;
-                    }
-                }
-                else
-                {
-                    biomeObjs[j].transform.position = Random.onUnitSphere * planetSettings.planetRadius;
-                }
             }
         }
+
+        for (int i = 0; i < biomeObjs.Length; i++)
+        {
+            Debug.Log("biome");
+            if (planetSettings.havePoles && i<2)
+            {
+                if (i == 0)
+                {
+                    biomeObjs[i].transform.position = transform.up * planetSettings.planetRadius;
+                }
+                else if(i==1)
+                {
+                    biomeObjs[i].transform.position = -transform.up * planetSettings.planetRadius;
+                }
+            }
+            else
+            {
+                biomeObjs[i].transform.position = Random.onUnitSphere * planetSettings.planetRadius;
+            }
+        }
+        
     }
 }
