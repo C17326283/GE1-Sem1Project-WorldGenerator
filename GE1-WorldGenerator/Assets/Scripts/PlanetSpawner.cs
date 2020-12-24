@@ -86,7 +86,7 @@ public class PlanetSpawner : MonoBehaviour
             spawnedExtras = Instantiate(extras, planet.transform);
             GameObject atmosphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             atmosphere.GetComponent<Collider>().enabled = false;
-            atmosphere.transform.localScale = Vector3.one * ((planetSettings.planetRadius*2) + planet.GetComponent<Planet>().elevationMinMax.Max);//make it outside the radius
+            atmosphere.transform.localScale = (Vector3.one * (planetSettings.planetRadius*2)) + (Vector3.one * (planet.GetComponent<Planet>().elevationMinMax.Max/2));//make it outside the radius
             atmosphere.GetComponent<Renderer>().material = atmosphereMat;
             FlipNormals(atmosphere);
 
