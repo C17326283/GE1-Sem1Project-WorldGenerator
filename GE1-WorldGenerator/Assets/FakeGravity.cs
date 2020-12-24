@@ -9,7 +9,7 @@ public class FakeGravity : MonoBehaviour
     public Rigidbody rb; 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (rb == null)
         {
