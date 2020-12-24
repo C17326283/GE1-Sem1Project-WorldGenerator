@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,6 @@ public class TerrainFace : MonoBehaviour
     private Mesh mesh;
 
     private int res;
-    public int biome;
 
     private Vector3 localUp;
     private Vector3 axisA;
@@ -17,17 +17,20 @@ public class TerrainFace : MonoBehaviour
     private PlanetSettings settings;
     private NoiseLayer[] noiseLayers;
     private TerrainMinMaxHeights elevationMinMax;
+    private Boolean isLand;
+    private float waterHeight =0.3f;
 
 
 
     //constructor for initalising the terrain face parameters
-    public TerrainFace(Mesh mesh, int res, Vector3 localUp, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings)
+    public TerrainFace(Mesh mesh, int res, Vector3 localUp, TerrainMinMaxHeights elevationMinMax,PlanetSettings planetSettings, Boolean isLand)
     {
         //this.shapeGenerator = shapeGenerator;
         this.mesh = mesh;
         this.res = res;
         this.localUp = localUp;
         this.elevationMinMax = elevationMinMax;
+        this.isLand = isLand;
         this.settings = planetSettings;
         this.noiseLayers = planetSettings.noiseLayers;//copy all noise layers from planetSettings
         
@@ -57,7 +60,12 @@ public class TerrainFace : MonoBehaviour
                 
                 
                 //use the spherized point with noise to find where it should be
-                vertices[i] = AddNoiseToVertex(pointOnUnitSphere);
+                if(isLand)
+                    vertices[i] = AddHeightToVertex(pointOnUnitSphere);
+                else
+                {
+                    vertices[i] = pointOnUnitSphere * (settings.planetRadius+waterHeight);
+                }
                 
                 //get trianle points from points on mesh
                 if(x != res-1 &&  y != res-1)
@@ -84,7 +92,7 @@ public class TerrainFace : MonoBehaviour
         mesh.Optimize();
     }
     
-    public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)
+    public Vector3 AddHeightToVertex(Vector3 pointOnUnitSphere)
     {
         float firstLayerValue = 0;
         //float elevation = noiseFilter.Evaluate(pointOnUnitSphere);
@@ -113,7 +121,7 @@ public class TerrainFace : MonoBehaviour
         elevation = settings.planetRadius * (1 + elevation);
         //Debug.Log(elevation);
         //check if is exact radius, if so then lower it to allow for the water mesh to be fitted properly
-        if (elevation < settings.planetRadius+0.3f)
+        if (elevation < settings.planetRadius+waterHeight)
         {
             //dont evaluated point so the colours dont rely on water level
             elevation = (settings.planetRadius * 1)-1f;

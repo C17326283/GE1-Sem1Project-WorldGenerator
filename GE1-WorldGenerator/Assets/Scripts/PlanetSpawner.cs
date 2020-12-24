@@ -12,6 +12,7 @@ public class PlanetSpawner : MonoBehaviour
     public PlanetSettings planetSettings;
     public PlanetSettings defaultPlanetSettings;
     public Material mat;
+    public Material waterMat;
     public GameObject extras;
 
     private GameObject spawnedExtras;
@@ -64,7 +65,8 @@ public class PlanetSpawner : MonoBehaviour
             planet.transform.parent = this.transform;
             planetScript = planet.AddComponent<Planet>();
             planetScript.planetSettings = planetSettings;
-            planetScript.planetSettings.planetMaterials = mat;
+            planetScript.planetSettings.planetMaterial = mat;
+            planetScript.planetSettings.waterMaterial = waterMat;
             setDefaultSettings();
         }
 

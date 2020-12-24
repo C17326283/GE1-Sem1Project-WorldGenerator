@@ -9,7 +9,8 @@ public class PlanetSettings : ScriptableObject
     //public Gradient[] gradients;
     //Have a list of the gradients and the materials to put them on for each biome
     public Gradient[] biomeGradients;
-    public Material planetMaterials;
+    public Material planetMaterial;
+    public Material waterMaterial;
 
     [HideInInspector]
     public float planetRadius =100;//always public, could change in future but scaling works for other planets
