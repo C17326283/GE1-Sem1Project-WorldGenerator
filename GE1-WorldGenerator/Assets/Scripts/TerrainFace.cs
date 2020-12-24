@@ -81,6 +81,7 @@ public class TerrainFace : MonoBehaviour
         mesh.triangles = triangles;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
+        mesh.Optimize();
     }
     
     public Vector3 AddNoiseToVertex(Vector3 pointOnUnitSphere)

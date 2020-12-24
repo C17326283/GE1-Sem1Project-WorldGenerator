@@ -72,6 +72,7 @@ public class Planet : MonoBehaviour
                 meshObj.AddComponent<MeshRenderer>();
                 meshFilters[i] = meshObj.AddComponent<MeshFilter>();
                 meshFilters[i].sharedMesh = new Mesh();
+                meshFilters[i].sharedMesh.name = "sharedMesh";
             }
 
             if (biomeObjs == null)
@@ -105,7 +106,10 @@ public class Planet : MonoBehaviour
             //add to list of faces
             terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh,res,directions[i],elevationMinMax, planetSettings);
             
-            meshFilters[i].gameObject.AddComponent<MeshCollider>();//add mesh collider after changing terrain
+            DestroyImmediate(this.GetComponent<MeshCollider>());
+            var collider = meshFilters[i].transform.gameObject.AddComponent<MeshCollider>();
+            collider.sharedMesh = meshFilters[i].sharedMesh;
+            //meshFilters[i].gameObject.AddComponent<MeshCollider>();//add mesh collider after changing terrain
         }
     }
 

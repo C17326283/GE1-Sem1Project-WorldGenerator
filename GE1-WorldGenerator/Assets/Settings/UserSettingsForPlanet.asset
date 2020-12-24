@@ -97,10 +97,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  planetMaterials:
-  - {fileID: 2100000, guid: 30254c7b84e31aa45bdf1294912cc037, type: 2}
-  - {fileID: 2100000, guid: ed9670897af9a6f49aac5de37805de9a, type: 2}
-  - {fileID: 2100000, guid: 63b915a37b3874c4185d8cfd39ff9fb2, type: 2}
+  planetMaterials: {fileID: 2100000, guid: b6fcab61b5092c24eb9f7bab873c2274, type: 2}
   planetRadius: 100
   noiseLayers:
   - enabled: 1
@@ -136,3 +133,4 @@ MonoBehaviour:
     waterLevel: 1
     waterDepth: 1
     centre: {x: 0, y: 0, z: 0}
+  havePoles: 1
