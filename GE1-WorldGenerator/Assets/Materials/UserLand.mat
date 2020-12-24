@@ -128,9 +128,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _elevationMinMax: {r: 100.30002, g: 111.41025, b: 0, a: 0}
-    - _objPos: {r: 77, g: 56, b: 0, a: 0}
+    - _elevationMinMax: {r: 100.30054, g: 110.424484, b: 0, a: 0}
+    - _objPos: {r: 0, g: 100, b: 0, a: 0}
     - _objPos2: {r: 0, g: -100, b: 0, a: 0}
-    - _objPos3: {r: 70.83857, g: -56.363136, b: -42.486393, a: 0}
-    - _objPos4: {r: -44.85476, g: -5.4024262, b: 89.21246, a: 0}
+    - _objPos3: {r: -1.9656284, g: 27.07285, b: 96.24551, a: 0}
+    - _objPos4: {r: -30.941147, g: 57.84808, b: -75.47347, a: 0}
   m_BuildTextureStacks: []

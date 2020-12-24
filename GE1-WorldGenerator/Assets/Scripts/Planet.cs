@@ -115,6 +115,7 @@ public class Planet : MonoBehaviour
         Create();
         GenerateMesh();
         GenerateColours();//turn this back on, its just annoying for editing
+        
     }
     
     //Make mesh from all terrain faces
@@ -157,7 +158,7 @@ public class Planet : MonoBehaviour
 
         for (int i = 0; i < biomeObjs.Length; i++)
         {
-            Debug.Log("biome");
+//            Debug.Log("biome");
             if (planetSettings.havePoles && i<2)
             {
                 if (i == 0)

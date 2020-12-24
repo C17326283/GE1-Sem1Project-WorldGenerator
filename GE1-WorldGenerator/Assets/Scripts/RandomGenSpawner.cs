@@ -62,9 +62,9 @@ public class RandomGenSpawner : MonoBehaviour
         newObj = null;
         
         RaycastHit hit;//shoot ray and if its ground then spawn at that location
-        if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 5000))
+        if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
         {
-            Debug.Log(hit.transform.name);
+            Debug.Log(hit.transform.name+gameObject.transform.position);
             if (hit.transform.CompareTag(tagToSpawnOn))//Checks its allowed spawn there
             {
                 newObj = multObjectPoolObj.GetObj();

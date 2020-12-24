@@ -72,6 +72,7 @@ public class PlanetSpawner : MonoBehaviour
             planetScript.planetSettings.waterMaterial = waterMat;
             setDefaultSettings();
         }
+        
 
         updateSettingsFromGUI();
         planetScript.GeneratePlanet();

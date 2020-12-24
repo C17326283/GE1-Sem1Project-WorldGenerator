@@ -18,6 +18,8 @@ public class PlanetSettings : ScriptableObject
     public Boolean havePoles = true;
 
     //public GameObject biomeObj;
+    
+    
 
 
 
