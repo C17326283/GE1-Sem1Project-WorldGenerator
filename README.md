@@ -39,9 +39,12 @@ This is a project to procedurally generate a planet.
 It will edit the verticies to create different terrain levels.
 It will have multiple different biomes and evironments.
 
-#References
+# References
 I followed this tutorial to get started but changed a lot of how it works: https://www.youtube.com/watch?v=QN39W020LqU&list=PLFt_AvWsXl0cONs3T0By4puYy6GM22ko8
 I used some scripts from old projects as well to get started such as the tree spawners but needed to heavily modify it.
+I used low poly assets from the asset store for the objects that get spawned on the terrain and the clouds
+i used a skybox from the asset store
+
 
 # What am i most proud of
 There were a lot of things in this project that were unexpectedly difficult but i am most proud of the mesh generation

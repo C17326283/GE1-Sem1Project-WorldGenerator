@@ -16,14 +16,13 @@ public class PlanetSpawner : MonoBehaviour
     [HideInInspector] 
     public GameObject planet;
     public PlanetSettings planetSettings;
-    public PlanetSettings defaultPlanetSettings;
+    public PlanetSettings defaultPlanetSettings;//The default eath like settings to copy from for the start
     public Material mat;
     public Material waterMat;
     public Material atmosphereMat;
-    public GameObject extras;
+    public GameObject extras;//Spawners
 
     private GameObject spawnedExtras;
-    private GameObject spawnerSpawners;
     private Planet planetScript;
 
     //The references to the gui objects that updates the settings
@@ -47,7 +46,7 @@ public class PlanetSpawner : MonoBehaviour
     private Slider noiseLayersSlider;
     private TextMeshProUGUI noiseLayersTextMeshPro;
 
-    //Make the objects and get the references
+    //Make the objects and get the references of the sliders and text
     public void Start()
     {
         planetSettings = Instantiate(defaultPlanetSettings);
@@ -112,7 +111,7 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.noiseLayers[0].persistance = persistanceSlider.value;
         planetSettings.noiseLayers[0].baseRoughness = baseRoughnessSlider.value;
         
-        planetSettings.noiseLayers[0].NumOfNoiseLayers = (int)noiseLayersSlider.value;
+        planetSettings.noiseLayers[0].NumOfNoiseCycles = (int)noiseLayersSlider.value;
     }
     
     //sets the value and slider at beginning from the base template
@@ -131,8 +130,8 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.noiseLayers[0].baseRoughness = defaultPlanetSettings.noiseLayers[0].baseRoughness;
         baseRoughnessSlider.value = defaultPlanetSettings.noiseLayers[0].baseRoughness;
         
-        planetSettings.noiseLayers[0].NumOfNoiseLayers = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
-        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
+        planetSettings.noiseLayers[0].NumOfNoiseCycles = defaultPlanetSettings.noiseLayers[0].NumOfNoiseCycles;
+        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseCycles;
         UpdateGUIDetails();
     }
 
@@ -140,13 +139,12 @@ public class PlanetSpawner : MonoBehaviour
     public void UpdateGUIDetails()
     {
         
-        resTextMeshPro.text = "Resolution: "+resSlider.value;
-        strengthTextMeshPro.text = "Strength: "+strengthSlider.value;
-        roughnessTextMeshPro.text = "Roughness: "+roughnessSlider.value;
-        persistanceTextMeshPro.text = "Amplification: "+persistanceSlider.value;
-        baseRoughnessTextMeshPro.text = "Continent Spread: "+baseRoughnessSlider.value;
-        noiseLayersTextMeshPro.text = "Cycles: "+noiseLayersSlider.value;
-        //resTextMeshPro.text = "Resolution: "+defaultPlanetSettings.noiseLayers[0].strength;
+        resTextMeshPro.text = "Resolution: "+System.Math.Round(resSlider.value,2);
+        strengthTextMeshPro.text = "Strength: "+System.Math.Round(strengthSlider.value,2);
+        roughnessTextMeshPro.text = "Roughness: "+System.Math.Round(roughnessSlider.value,2);
+        persistanceTextMeshPro.text = "Amplification: "+System.Math.Round(persistanceSlider.value,2);
+        baseRoughnessTextMeshPro.text = "Continent Spread: "+System.Math.Round(baseRoughnessSlider.value,2);
+        noiseLayersTextMeshPro.text = "Cycles: "+System.Math.Round(noiseLayersSlider.value,2);
     }
 
     //Make a different center point for the noise, this makes different terrain with all the same settings
@@ -172,8 +170,8 @@ public class PlanetSpawner : MonoBehaviour
         planetSettings.noiseLayers[0].baseRoughness = defaultPlanetSettings.noiseLayers[0].baseRoughness;
         baseRoughnessSlider.value = defaultPlanetSettings.noiseLayers[0].baseRoughness;
         
-        planetSettings.noiseLayers[0].NumOfNoiseLayers = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
-        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseLayers;
+        planetSettings.noiseLayers[0].NumOfNoiseCycles = defaultPlanetSettings.noiseLayers[0].NumOfNoiseCycles;
+        noiseLayersSlider.value = defaultPlanetSettings.noiseLayers[0].NumOfNoiseCycles;
         planetSettings.noiseLayers[0].centre = defaultPlanetSettings.noiseLayers[0].centre;
         planetSettings.havePoles = true;
         Generate();
@@ -184,6 +182,7 @@ public class PlanetSpawner : MonoBehaviour
     {
         Generate();
         this.GetComponent<RotateEnvironment>().enabled = false;
+        //Tried to get bettr player controller but it didnt work
         //player.transform.position = (planet.transform.up * planetSettings.planetRadius)+ (Vector3.up * 110);
         player.GetComponent<SimpleCameraController>().enabled = true;
         //FakeGravity fg = player.AddComponent<FakeGravity>();

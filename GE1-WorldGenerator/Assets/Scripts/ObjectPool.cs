@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//For holding a list of objects to be called randomly and adding them back here when they are despawned.
 public class ObjectPool : MonoBehaviour
 {
 
@@ -12,7 +13,7 @@ public class ObjectPool : MonoBehaviour
     public List<List<GameObject>> lists;
 
     //initial number of element
-    public int initialNum = 10;
+    public int initialNum = 0;
     public int maxAmountActive = 100;
 
     //collection
@@ -116,6 +117,8 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
+    
+    //For active and deactive stuff to be used later with animals, from old project
     // get all active objects
     public List<GameObject> GetAllActive()
     {

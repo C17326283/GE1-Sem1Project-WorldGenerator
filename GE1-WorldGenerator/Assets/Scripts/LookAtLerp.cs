@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Just for making something look at soemthing else
+
 public class LookAtLerp : MonoBehaviour
 {
     public GameObject gameObjectToLookAt;

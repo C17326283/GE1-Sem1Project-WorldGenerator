@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Simply rotate at set speed
 public class RotateEnvironment : MonoBehaviour
 {
     public int rotateSpeed = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {

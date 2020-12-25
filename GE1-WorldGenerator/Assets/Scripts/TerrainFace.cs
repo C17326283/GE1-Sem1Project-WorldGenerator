@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    //Makign the indivual faces
+    //Making the indivual faces
 public class TerrainFace : MonoBehaviour
 {
     //private ShapeGenerator shapeGenerator;
@@ -94,7 +94,6 @@ public class TerrainFace : MonoBehaviour
     public Vector3 AddHeightToVertex(Vector3 pointOnUnitSphere)
     {
         float firstLayerValue = 0;
-        //float elevation = noiseFilter.Evaluate(pointOnUnitSphere);
         float elevation = 0;
         
         //Use the previous layers as a mask so spikes go on top of other mountains not randomly

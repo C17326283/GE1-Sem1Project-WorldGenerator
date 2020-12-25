@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+//for spawning the random objects onto the terrain 
+//I used a pool system i had in an old project and adapted it to this, since im not despawnin objects they dont go back into the pool but it would be useful in future for animals
 public class RandomGenSpawner : MonoBehaviour
 {
     [SerializeField]//Make private visible in inspector, need private so doesnt give error
-    private ObjectPool multObjectPoolObj;
+    private ObjectPool multObjectPoolObj;//Pool of the objects to pull from
     public GameObject parentObject;
     public GameObject planetObject;
-    private Vector3 core;//for raycasting spawn points
+    private Vector3 core;//for raycasting to for spawn points
     
     public int amountToSpawn = 10000;//also limited by pool max
     public int spawnerDistanceFromCore = 5000;
@@ -19,7 +21,7 @@ public class RandomGenSpawner : MonoBehaviour
     public bool isRotatingObject;//for clouds
     public int poolIndexNumber = 0;
 
-    
+    //For adding variation
     [Header("Only randomises if condition is true")]
     public bool RandomiseScaleAndRotation = false;
     public float minScale = 1f;
@@ -32,6 +34,7 @@ public class RandomGenSpawner : MonoBehaviour
     
     void Awake()
     {
+        //Move the spawner object
         Resposition();
         multObjectPoolObj = GetAssociatedPool();
         if (planetObject == null)
@@ -46,17 +49,12 @@ public class RandomGenSpawner : MonoBehaviour
         core = planetObject.transform.position;
         multObjectPoolObj.InitPool();//force pool to be initiated instead of waiting for awake
         
+        //start spawning objects
         StartCoroutine(Spawn());
-        
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.DrawRay(gameObject.transform.position, core - gameObject.transform.position, Color.magenta);
-    }
 
+    //Spawn objects from pool in loop
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(1f);//to make sure the mesh was spawned correctly
@@ -64,6 +62,7 @@ public class RandomGenSpawner : MonoBehaviour
         {
             newObj = null;
 
+            
             RaycastHit hit; //shoot ray and if its ground then spawn at that location
             if (Physics.Raycast(transform.position, core - gameObject.transform.position, out hit, 10000))
             {
@@ -73,13 +72,12 @@ public class RandomGenSpawner : MonoBehaviour
                     newObj = multObjectPoolObj.GetObj();
                     if (newObj != null)
                     {
+                        
                         newObj.SetActive(true);
 
                         newObj.transform.position = hit.point; //place object at hit
                         newObj.transform.up = newObj.transform.position - core; //set rotation so orients properly
-                        newObj.transform.position =
-                            newObj.transform.position +
-                            newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
+                        newObj.transform.position = newObj.transform.position + newObj.transform.up * heightFromHitPoint; //repoisition to correct height from hit
 
 
                         if (RandomiseScaleAndRotation)
@@ -104,11 +102,10 @@ public class RandomGenSpawner : MonoBehaviour
             }
             Resposition();
         }
-
-        
     }
 
 
+    //Get the pool based on the index number, this allows for infinite pools to be definted
     public ObjectPool GetAssociatedPool()
     {
         //See if any of the pools match and return that else return null
@@ -120,6 +117,8 @@ public class RandomGenSpawner : MonoBehaviour
         }
         return null;
     }
+    
+    //Move the spawner to a different positon around the globe
     public void Resposition()
     {
         gameObject.transform.position = core;

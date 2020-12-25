@@ -54,7 +54,6 @@ public class ColourGenerator
                 settings.planetMaterial.SetTexture("_texture",textures[0]);//normal
                 settings.planetMaterial.SetTexture("_texture2",textures[1]);//hot
                 settings.planetMaterial.SetTexture("_texture3",textures[2]);//cold
-//                Debug.Log("objpos");
                 settings.planetMaterial.SetVector("_objPos",biomeObj.transform.position);
                 settings.planetMaterial.SetVector("_objPos2",biomeObj2.transform.position);
                 settings.planetMaterial.SetVector("_objPos3",biomeObj3.transform.position);

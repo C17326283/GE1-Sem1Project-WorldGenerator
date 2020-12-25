@@ -20,8 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad2a27-497a-4ef9-9a0c-1c6893bd11ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Planet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GE1-WorldGenerator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/HeightMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/HeightMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/HeightShader.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/HeightShader.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/InfiniteTerrain.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/InfiniteTerrain.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainMaterial2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainMaterial2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainPlane.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainPlane.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainShader1.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainShader1.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainTile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/TerrainTile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/Utilities.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/Utilities.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/tile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Infinite/tile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmoshphereShader.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/AtmosphereMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Sun.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Sun.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UserLand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlanetProfiles/UserSettingsForPlanet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlanetProfiles/UserSettingsForPlanet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Planet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,17 +91,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" />
         <option value="$PROJECT_DIR$/Assets/RayCastTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/FakeGravity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Planet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainFace.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NoiseLayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RandomGenSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlanetSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ColourGenerator.cs" />
       </list>
     </option>
   </component>
@@ -134,7 +167,7 @@
       <workItem from="1608606673265" duration="240000" />
       <workItem from="1608632159516" duration="46759000" />
       <workItem from="1608737854841" duration="27043000" />
-      <workItem from="1608808507700" duration="39003000" />
+      <workItem from="1608808507700" duration="42004000" />
     </task>
     <servers />
   </component>
@@ -255,6 +288,10 @@
     <state width="1877" height="216" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@-1920.86.1920.1040" timestamp="1608677511638" />
     <state width="1877" height="216" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1608662624044" />
     <state width="1743" height="190" key="GridCell.Tab.3.right/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@1920.47.1786.986" timestamp="1608662102179" />
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1608856211631">
+      <screen x="-1920" y="86" width="1920" height="1040" />
+    </state>
+    <state x="-1828" y="178" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.47.1786.986/-1920.86.1920.1040@0.0.1920.1040" timestamp="1608856211631" />
     <state x="98" y="221" width="1299" height="668" key="find.popup" timestamp="1608819797502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

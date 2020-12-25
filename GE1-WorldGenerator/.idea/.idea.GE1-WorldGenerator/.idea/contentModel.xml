@@ -35,13 +35,6 @@
             </e>
           </e>
         </e>
-        <e p="Infinite" t="Include">
-          <e p="InfiniteTerrain.cs" t="Include" />
-          <e p="TerrainPlane.cs" t="Include" />
-          <e p="TerrainShader1.shader" t="Include" />
-          <e p="TerrainTile.cs" t="Include" />
-          <e p="Utilities.cs" t="Include" />
-        </e>
         <e p="Scripts" t="Include">
           <e p="ColourGenerator.cs" t="Include" />
           <e p="FakeGravity.cs" t="Include" />

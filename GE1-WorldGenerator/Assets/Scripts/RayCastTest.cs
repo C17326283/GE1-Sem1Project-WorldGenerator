@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Just for testign the mesh colliders, dont need in finished
 public class RayCastTest : MonoBehaviour
 {
     public Camera camera;
